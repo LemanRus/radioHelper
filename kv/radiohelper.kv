@@ -1,0 +1,136 @@
+#: import App kivy.app.App
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+<RadioHelperScreenManager>:
+    transition: FadeTransition()
+    MainScreen:
+        id: one
+    NominalsScreen:
+        id: nominal
+    ResistorScreen:
+        id: resistor
+    CapacitorScreen:
+    ComponentsScreen:
+        id: components
+    ResistorLEDCalculateScreen:
+        id: LED_cal
+    InductorCalculateScreen:
+        id: inductor_cal
+    ParallelResistorCalculateScreen:
+        id: par_resistor_cal
+    SerialCapacitorCalculateScreen:
+        id: ser_capacitor_cal
+    VoltageDividerCalculateScreen:
+        id: divider_cal
+    LM317CalculateScreen:
+        id: lm317_cal
+    LM317Voltage:
+    LM317Current:
+    PinsScreen:
+    SchemesScreen:
+    SymbolsScreen:
+    StatesScreen:
+    HelpScreen:
+    AboutScreen:
+
+<PinsScreen>:
+    name: "pins"
+    BoxLayout:
+        orientation: "vertical"
+        ScrollView:
+            id: scrlvw
+            do_scroll_y: True
+            size: self.size
+            BoxLayout:
+                orientation: "vertical"
+                size_hint_y: None
+                size_hint_x: 1
+                height: self.minimum_height
+                Label:
+                    size_hint_y: None
+                    text_size: self.width, None
+                    height: self.texture_size[1]
+                    font_size: app.app_font_size
+                    text: "Тест распиновки:"
+                Image:
+                    source: "./img/resistor.png"
+                    allow_stretch: True
+                    keep_ratio: True
+                    size_hint: None, None
+                    width: root.width
+                Label:
+                    size_hint_y: None
+                    text_size: self.width, None
+                    height: self.texture_size[1]
+                    font_size: app.app_font_size
+                    text: "Тест распиновки:"
+                Image:
+                    source: "./img/resistor.png"
+                    allow_stretch: True
+                    keep_ratio: True
+                    size_hint: None, None
+                    width: root.width
+                Label:
+                    size_hint_y: None
+                    text_size: self.width, None
+                    height: self.texture_size[1]
+                    font_size: app.app_font_size
+                    text: "Тест распиновки:"
+                Image:
+                    source: "./img/resistor.png"
+                    allow_stretch: True
+                    keep_ratio: True
+                    size_hint: None, None
+                    width: root.width
+        Button:
+            text: "На главный\nЗдесь будут распиновки"
+            font_size: app.app_button_size
+            size_hint_y: 0.2
+            text_size: self.size
+            halign: "center"
+            valign: "center"
+            on_release: root.manager.current = "main"
+
+<SchemesScreen>:
+    name: "schemes"
+    BoxLayout:
+        Button:
+            text: "На главный\nЗдесь будут схемы"
+            font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
+            on_release: root.manager.current = "main"
+
+<SymbolsScreen>:
+    name: "symbols"
+    BoxLayout:
+        Button:
+            text: "На главный\nЗдесь будут обозначения"
+            font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
+            on_release: root.manager.current = "main"
+
+<StatesScreen>:
+    name: "states"
+    BoxLayout:
+        Button:
+            text: "На главный\nЗдесь будут статьи"
+            font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
+            on_release: root.manager.current = "main"
+
+<HelpScreen>:
+    name: "help"
+    BoxLayout:
+        Button:
+            text: "На главный\nЗдесь будет помощь"
+            font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
+            on_release: root.manager.current = "main"

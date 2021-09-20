@@ -1,0 +1,204 @@
+<ResistorLEDCalculateScreen>:
+    name: "LED_cal"
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            Label:
+                text: "Напряжение источника питания:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
+            TextInput:
+                id: led_vol
+                size_hint_x: 0.2
+                text: '5'
+                font_size: app.app_font_size
+                multiline: False
+                halign: "center"
+                padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
+                on_text_validate:
+            Label:
+                size_hint_x: 0.1
+                text: "В"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
+            Widget:
+                size_hint_x: 0.52
+        BoxLayout:
+            size_hint_y: 2
+            BoxLayout:
+                orientation: "vertical"
+                BoxLayout:
+                    Label:
+                        text: "Напряжение питания светодиода:"
+                        text_size: self.size
+                        font_size: app.app_font_size
+                        halign: "center"
+                        valign: "center"
+                    TextInput:
+                        id: led_vol_input
+                        size_hint_x: 0.2
+                        font_size: app.app_font_size
+                        multiline: False
+                        halign: "center"
+                        padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
+                        on_text_validate:
+                    Label:
+                        size_hint_x: 0.1
+                        text: "В"
+                        text_size: self.size
+                        font_size: app.app_font_size
+                        halign: "center"
+                        valign: "center"
+                BoxLayout:
+                    Label:
+                        text: "Ток светодиода:"
+                        text_size: self.size
+                        font_size: app.app_font_size
+                        halign: "center"
+                        valign: "center"
+                    TextInput:
+                        id: led_cur_input
+                        size_hint_x: 0.2
+                        font_size: app.app_font_size
+                        multiline: False
+                        halign: "center"
+                        padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
+                        on_text_validate:
+                    Label:
+                        size_hint_x: 0.1
+                        text: "мА"
+                        text_size: self.size
+                        font_size: app.app_font_size
+                        halign: "center"
+                        valign: "center"
+            Spinner:
+                size_hint_x: 0.4
+                text: "Выберите"
+                font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+                values: [*root.diodes]
+                on_text: led_vol_input.text = str(root.diodes[self.text][0])
+                on_text: led_cur_input.text = str(root.diodes[self.text][1])
+        BoxLayout:
+            Label:
+                text: "Количество светодиодов:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
+            TextInput:
+                id: led_quantity
+                size_hint_x: 0.2
+                text: '1'
+                font_size: app.app_font_size
+                multiline: False
+                halign: "center"
+                padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
+                on_text_validate:
+            Label:
+                size_hint_x: 0.1
+                text: "шт"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
+            Widget:
+                size_hint_x: 0.52
+        Button:
+            text: "Рассчитать!"
+            text_size: self.size
+            halign: "center"
+            valign: "center"
+            font_size: app.app_button_size
+            on_release: root.led_calculate(led_vol.text, led_vol_input.text, led_cur_input.text, led_quantity.text)
+        Label:
+            canvas.before:
+                Color:
+                    rgba: 1,1,1,1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint_y: 0.03
+        Label:
+            text: "Результат:"
+            text_size: self.size
+            font_size: app.app_font_size
+            halign: "center"
+            valign: "center"
+        BoxLayout:
+            Label:
+                text: "Расчётное сопротивление:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
+            Label:
+                id: led_result
+                size_hint_x: 0.3
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
+        BoxLayout:
+            Label:
+                text: "Стандартное значение:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
+            Label:
+                id: led_e24
+                size_hint_x: 0.3
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
+        BoxLayout:
+            Label:
+                text: "Рассеиваемая на резисторе мощность:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
+            Label:
+                id: led_res_power
+                size_hint_x: 0.3
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
+        BoxLayout:
+            Label:
+                text: "Потребляемый ток:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
+            Label:
+                id: led_cur
+                size_hint_x: 0.3
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
+        BoxLayout:
+            Button:
+                text: "Назад"
+                font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+                on_release: root.manager.current = "components"
+            Button:
+                text: "На главный"
+                font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+                on_release: root.manager.current = "main"

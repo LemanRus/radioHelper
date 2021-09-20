@@ -1,0 +1,80 @@
+#:import Clipboard kivy.core.clipboard.Clipboard
+#:import toast kivymd.toast.toast
+
+<AboutScreen>:
+    name: "about"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "Помощник радиолюбителя\n\nКарманный помощник, готовый выручить в любую минуту"
+            text_size: self.size
+            halign: "center"
+            valign: "center"
+            font_size: app.app_font_size + 2
+        Label:
+            text: "by Vlad aka LemanRuss"
+            text_size: self.size
+            halign: "center"
+            valign: "center"
+            font_size: 14
+        Label:
+            text: "Создано автором бескорыстно и с любовью\n100% Python\nАвтор выражает благодарность Гвидо ван Россуму\nи создателям замечательного фреймворка kivy"
+            text_size: self.size
+            halign: "center"
+            valign: "center"
+            font_size: app.app_font_size - 3
+        Label:
+            text: "На вкусняшки котику автора:"
+            text_size: self.size
+            halign: "center"
+            valign: "center"
+            font_size: app.app_font_size
+        BoxLayout:
+            Image:
+                halign: "center"
+                source: "img/btc.png"
+                size_hint: 0.4, None
+                allow_stretch: False
+            Label:
+                id: btc_address
+                text: "Любая сумма в биткоинах\nbc1qz070d7tgupm8sr0paan5v6dnaqdj8lmjazamql"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+                font_size: app.app_font_size
+            MDIconButton:
+                icon: "img/copy.png"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+                user_font_size: "24sp"
+                on_press: Clipboard.copy("bc1qz070d7tgupm8sr0paan5v6dnaqdj8lmjazamql")
+                on_release: toast("Адрес скопирован!")
+            Widget:
+                size_hint_x: 0.03
+        BoxLayout:
+            Image:
+                halign: "center"
+                source: "img/card.png"
+                size_hint: 0.4, None
+                allow_stretch: False
+            Label:
+                text: "Или любая сумма на карту"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+                font_size: app.app_font_size
+            MDIconButton:
+                icon: "img/outer_link.png"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+                user_font_size: "24sp"
+                on_press: root.link_to_founding("https://sobe.ru/na/podderzhat_avtora_prilozheniya")
+            Widget:
+                size_hint_x: 0.03
+        Button:
+            text: "На главный"
+            font_size: app.app_button_size
+            text_size: self.size
+            size_hint_y: None
+            height: 40
+            halign: "center"
+            valign: "center"
+            on_release: root.manager.current = "main"

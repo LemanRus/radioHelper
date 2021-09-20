@@ -1,0 +1,67 @@
+<ParallelResistorCalculateScreen>:
+    name: "par_resistor_cal"
+    on_pre_enter: self.reset()
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            id: par_res_box
+            orientation: "vertical"
+            size_hint_y: 5
+        BoxLayout:
+            Button:
+                text: "Добавить резистор"
+                font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+                on_release: root.add_resistor()
+            Button:
+                text: "Очистить"
+                font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+                on_release: root.reset()
+        Button:
+            text: "Рассчитать!"
+            font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
+            on_release: root.par_res_calculate()
+        Label:
+            canvas.before:
+                Color:
+                    rgba: 1,1,1,1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            size_hint_y: 0.05
+        BoxLayout:
+            Label:
+                text: "Результат:"
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
+            Label:
+                id: par_res_output
+                text_size: self.size
+                font_size: app.app_font_size
+                halign: "center"
+                valign: "center"
+        BoxLayout:
+            Button:
+                text: "Назад"
+                font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+                on_release: root.manager.current = "components"
+            Button:
+                text: "На главный"
+                font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+                on_release: root.manager.current = "main"

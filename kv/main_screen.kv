@@ -1,0 +1,86 @@
+<MainScreen>:
+    name: "main"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            id: app_title
+            text: "Помощник радиолюбителя"
+            font_size: app.app_header_size
+            size_hint_y: None
+            height: 40
+        BoxLayout:
+            Button:
+                id: nominals_button
+                text: "Маркировка и номиналы компонентов"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+                font_size: app.app_button_size
+                on_release: root.manager.current = "nominal"
+            Button:
+                id: components_button
+                text: "Расчёт компонентов для схем"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+                font_size: app.app_button_size
+                on_release: root.manager.current = "components"
+        BoxLayout:
+            Button:
+                id: pins_button
+                text: "Распиновки"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+                font_size: app.app_button_size
+                on_release: root.manager.current = "pins"
+            Button:
+                id: schemes_button
+                text: "Типовые схемы"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+                font_size: app.app_button_size
+                on_release: root.manager.current = "schemes"
+        BoxLayout:
+            Button:
+                id: symbols_button
+                text: "Обозначения компонентов на схемах"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+                font_size: app.app_button_size
+                on_release: root.manager.current = "symbols"
+            Button:
+                text: "Полезные статьи"
+                id: states_button
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+                font_size: app.app_button_size
+                on_release: root.manager.current = "states"
+        BoxLayout:
+            Button:
+                id: help_button
+                text: "Помощь"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+                font_size: app.app_button_size
+                on_release: root.manager.current = "help"
+            Button:
+                id: about_button
+                text: "О программе"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+                font_size: app.app_button_size
+                on_release: root.manager.current = "about"
+        Button:
+            id: button_set
+            text: "Настройки"
+            text_size: self.size
+            halign: "center"
+            valign: "center"
+            font_size: app.app_button_size
+            on_release: app.open_settings()

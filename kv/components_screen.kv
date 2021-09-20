@@ -1,0 +1,58 @@
+<ComponentsScreen>:
+    name: "components"
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "Расчёт компонентов"
+            font_size: app.app_header_size
+            size_hint_y: None
+            height: 40
+        Button:
+            text: "Расчёт резисторов для светодиодов"
+            font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
+            on_release: root.manager.current = "LED_cal"
+        Button:
+            text: "Расчёт катушки индуктивности"
+            font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
+            on_release: root.manager.current = "inductor_cal"
+        Button:
+            text: "Параллельное соединение резисторов"
+            font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
+            on_release: root.manager.current = "par_resistor_cal"
+        Button:
+            text: "Последовательное соединение конденсаторов"
+            font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
+            on_release: root.manager.current = "ser_capacitor_cal"
+        Button:
+            text: "Делитель напряжения"
+            font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
+            on_release: root.manager.current = "divider_cal"
+        Button:
+            text: "LM317/LM350/LM338 калькулятор"
+            font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
+            on_release: root.manager.current = "lm317_cal"
+        Button:
+            text: "На главный"
+            font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
+            on_release: root.manager.current = "main"

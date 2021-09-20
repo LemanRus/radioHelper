@@ -1,8 +1,8 @@
 #: import App kivy.app.App
-#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+#: import MDFadeSlideTransition kivymd.uix.transition.transition.MDFadeSlideTransition
 
 <RadioHelperScreenManager>:
-    transition: FadeTransition()
+    transition: MDFadeSlideTransition()
     MainScreen:
         id: one
     NominalsScreen:
@@ -46,7 +46,7 @@
                 size_hint_y: None
                 size_hint_x: 1
                 height: self.minimum_height
-                Label:
+                MDLabel:
                     size_hint_y: None
                     text_size: self.width, None
                     height: self.texture_size[1]
@@ -58,7 +58,7 @@
                     keep_ratio: True
                     size_hint: None, None
                     width: root.width
-                Label:
+                MDLabel:
                     size_hint_y: None
                     text_size: self.width, None
                     height: self.texture_size[1]
@@ -70,7 +70,7 @@
                     keep_ratio: True
                     size_hint: None, None
                     width: root.width
-                Label:
+                MDLabel:
                     size_hint_y: None
                     text_size: self.width, None
                     height: self.texture_size[1]

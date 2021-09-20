@@ -5,25 +5,25 @@
     name: "about"
     BoxLayout:
         orientation: "vertical"
-        Label:
+        MDLabel:
             text: "Помощник радиолюбителя\n\nКарманный помощник, готовый выручить в любую минуту"
             text_size: self.size
             halign: "center"
             valign: "center"
             font_size: app.app_font_size + 2
-        Label:
+        MDLabel:
             text: "by Vlad aka LemanRuss"
             text_size: self.size
             halign: "center"
             valign: "center"
-            font_size: 14
-        Label:
+            font_size: app.app_font_size - 10
+        MDLabel:
             text: "Создано автором бескорыстно и с любовью\n100% Python\nАвтор выражает благодарность Гвидо ван Россуму\nи создателям замечательного фреймворка kivy"
             text_size: self.size
             halign: "center"
             valign: "center"
             font_size: app.app_font_size - 3
-        Label:
+        MDLabel:
             text: "На вкусняшки котику автора:"
             text_size: self.size
             halign: "center"
@@ -31,11 +31,11 @@
             font_size: app.app_font_size
         BoxLayout:
             Image:
-                halign: "center"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
                 source: "img/btc.png"
                 size_hint: 0.4, None
                 allow_stretch: False
-            Label:
+            MDLabel:
                 id: btc_address
                 text: "Любая сумма в биткоинах\nbc1qz070d7tgupm8sr0paan5v6dnaqdj8lmjazamql"
                 text_size: self.size
@@ -52,11 +52,11 @@
                 size_hint_x: 0.03
         BoxLayout:
             Image:
-                halign: "center"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
                 source: "img/card.png"
                 size_hint: 0.4, None
                 allow_stretch: False
-            Label:
+            MDLabel:
                 text: "Или любая сумма на карту"
                 text_size: self.size
                 halign: "center"

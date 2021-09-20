@@ -29,7 +29,7 @@
             halign: "center"
             valign: "center"
             on_release: root.par_res_calculate()
-        Label:
+        MDLabel:
             canvas.before:
                 Color:
                     rgba: 1,1,1,1
@@ -38,13 +38,13 @@
                     pos: self.pos
             size_hint_y: 0.05
         BoxLayout:
-            Label:
+            MDLabel:
                 text: "Результат:"
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            Label:
+            MDLabel:
                 id: par_res_output
                 text_size: self.size
                 font_size: app.app_font_size

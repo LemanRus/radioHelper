@@ -3,7 +3,7 @@
     BoxLayout:
         orientation: "vertical"
         BoxLayout:
-            Label:
+            MDLabel:
                 text: "Напряжение источника питания:"
                 text_size: self.size
                 font_size: app.app_font_size
@@ -18,7 +18,7 @@
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate:
-            Label:
+            MDLabel:
                 size_hint_x: 0.1
                 text: "В"
                 text_size: self.size
@@ -32,7 +32,7 @@
             BoxLayout:
                 orientation: "vertical"
                 BoxLayout:
-                    Label:
+                    MDLabel:
                         text: "Напряжение питания светодиода:"
                         text_size: self.size
                         font_size: app.app_font_size
@@ -46,7 +46,7 @@
                         halign: "center"
                         padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                         on_text_validate:
-                    Label:
+                    MDLabel:
                         size_hint_x: 0.1
                         text: "В"
                         text_size: self.size
@@ -54,7 +54,7 @@
                         halign: "center"
                         valign: "center"
                 BoxLayout:
-                    Label:
+                    MDLabel:
                         text: "Ток светодиода:"
                         text_size: self.size
                         font_size: app.app_font_size
@@ -68,7 +68,7 @@
                         halign: "center"
                         padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                         on_text_validate:
-                    Label:
+                    MDLabel:
                         size_hint_x: 0.1
                         text: "мА"
                         text_size: self.size
@@ -86,7 +86,7 @@
                 on_text: led_vol_input.text = str(root.diodes[self.text][0])
                 on_text: led_cur_input.text = str(root.diodes[self.text][1])
         BoxLayout:
-            Label:
+            MDLabel:
                 text: "Количество светодиодов:"
                 text_size: self.size
                 font_size: app.app_font_size
@@ -101,7 +101,7 @@
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate:
-            Label:
+            MDLabel:
                 size_hint_x: 0.1
                 text: "шт"
                 text_size: self.size
@@ -117,7 +117,7 @@
             valign: "center"
             font_size: app.app_button_size
             on_release: root.led_calculate(led_vol.text, led_vol_input.text, led_cur_input.text, led_quantity.text)
-        Label:
+        MDLabel:
             canvas.before:
                 Color:
                     rgba: 1,1,1,1
@@ -125,20 +125,20 @@
                     size: self.size
                     pos: self.pos
             size_hint_y: 0.03
-        Label:
+        MDLabel:
             text: "Результат:"
             text_size: self.size
             font_size: app.app_font_size
             halign: "center"
             valign: "center"
         BoxLayout:
-            Label:
+            MDLabel:
                 text: "Расчётное сопротивление:"
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            Label:
+            MDLabel:
                 id: led_result
                 size_hint_x: 0.3
                 text_size: self.size
@@ -146,13 +146,13 @@
                 halign: "center"
                 valign: "center"
         BoxLayout:
-            Label:
+            MDLabel:
                 text: "Стандартное значение:"
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            Label:
+            MDLabel:
                 id: led_e24
                 size_hint_x: 0.3
                 text_size: self.size
@@ -160,13 +160,13 @@
                 halign: "center"
                 valign: "center"
         BoxLayout:
-            Label:
+            MDLabel:
                 text: "Рассеиваемая на резисторе мощность:"
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            Label:
+            MDLabel:
                 id: led_res_power
                 size_hint_x: 0.3
                 text_size: self.size
@@ -174,13 +174,13 @@
                 halign: "center"
                 valign: "center"
         BoxLayout:
-            Label:
+            MDLabel:
                 text: "Потребляемый ток:"
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            Label:
+            MDLabel:
                 id: led_cur
                 size_hint_x: 0.3
                 text_size: self.size

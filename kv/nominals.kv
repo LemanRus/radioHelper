@@ -35,7 +35,7 @@
     BoxLayout:
         orientation: "vertical"
         BoxLayout:
-            Label:
+            MDLabel:
                 text: "Для резисторов сквозного монтажа выберите количество полос:"
                 text_size: self.size
                 halign: "center"
@@ -58,13 +58,13 @@
                     source: "./img/resistor.png"
             id: resistor_grid
             size_hint_y: 1.5
-            Label:
+            MDLabel:
                 size_hint_x: 0.25
             BoxLayout:
                 id: resistor_bands
                 size_hint_y: 0.75
                 pos_hint: {'center_x': 0.5, 'center_y': 0.5}
-            Label:
+            MDLabel:
                 size_hint_x: 0.25
 
         Button:
@@ -74,13 +74,13 @@
             halign: "center"
             valign: "center"
             on_release: root.calculate_resistor()
-        Label:
+        MDLabel:
             id: resistance
             text_size: self.size
             font_size: app.app_font_size
             halign: "center"
             valign: "center"
-        Label:
+        MDLabel:
             text: "Для SMD резистора впишите в поле ниже маркировку с резистора: "
             text_size: self.size
             halign: "center"
@@ -103,7 +103,7 @@
                 halign: "center"
                 valign: "center"
                 on_release: root.calculate_smd_resistor(smd_input.text)
-        Label:
+        MDLabel:
             id: smd_resistance
             text_size: self.size
             font_size: app.app_font_size
@@ -129,7 +129,7 @@
     name: "capacitor"
     BoxLayout:
         orientation: "vertical"
-        Label:
+        MDLabel:
             text: "Введите маркировку керамического конденсатора сквозного монтажа:"
             text_size: self.size
             font_size: app.app_font_size
@@ -151,13 +151,13 @@
                 halign: "center"
                 valign: "center"
                 on_release: root.calculate_capacitor(capacitor_input.text)
-        Label:
+        MDLabel:
             id: capacity
             text_size: self.size
             font_size: app.app_font_size
             halign: "center"
             valign: "center"
-        Label:
+        MDLabel:
             text: "Введите маркировку SMD конденсатора:"
             font_size: app.app_font_size
             text_size: self.size
@@ -179,7 +179,7 @@
                 halign: "center"
                 valign: "center"
                 on_release: root.calculate_smd_capacitor(smd_capacitor_input.text)
-        Label:
+        MDLabel:
             id: smd_capacity
             text_size: self.size
             font_size: app.app_font_size

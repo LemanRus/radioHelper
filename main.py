@@ -83,7 +83,6 @@ class RadioHelperApp(MDApp):
         self.app_header_size = self.config.getint("font", "header_size")
         self.app_button_size = self.config.getint("font", "button_size")
         self.use_kivy_settings = False
-        self.theme_cls.theme_style = "Dark"
         return RadioHelperScreenManager()
 
     def build_config(self, config):
@@ -101,9 +100,12 @@ class RadioHelperApp(MDApp):
     def on_config_change(self, config, section, key, value):
         config.set(section=section, option=key, value=value)
         config.write()
-        self.app_font_size = self.config.getint("font", "text_size")
-        self.app_header_size = self.config.getint("font", "header_size")
-        self.app_button_size = self.config.getint("font", "button_size")
+        self.app_font_size = self.config.getint("font", "text_size") if self.config.getint(
+            "font", "text_size") > 10 else 11
+        self.app_header_size = self.config.getint("font", "header_size")if self.config.getint(
+            "font", "header_size") > 10 else 11
+        self.app_button_size = self.config.getint("font", "button_size") if self.config.getint(
+            "font", "button_size") > 10 else 11
         self.root.ids.resistor.build_resistor(self.root.ids.resistor.ids.main_spinner.text)
 
 

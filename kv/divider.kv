@@ -3,7 +3,7 @@
     BoxLayout:
         orientation: "vertical"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Напряжение источника питания:"
                 text_size: self.size
                 font_size: app.app_font_size
@@ -17,7 +17,7 @@
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate:
-            MDLabel:
+            Label:
                 size_hint_x: 0.1
                 text: "В"
                 text_size: self.size
@@ -25,7 +25,7 @@
                 halign: "center"
                 valign: "center"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Сопротивление R1:"
                 text_size: self.size
                 font_size: app.app_font_size
@@ -39,7 +39,7 @@
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate:
-            MDLabel:
+            Label:
                 size_hint_x: 0.1
                 text: "Ом"
                 text_size: self.size
@@ -47,7 +47,7 @@
                 halign: "center"
                 valign: "center"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Сопротивление R2:"
                 text_size: self.size
                 font_size: app.app_font_size
@@ -61,7 +61,7 @@
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate:
-            MDLabel:
+            Label:
                 size_hint_x: 0.1
                 text: "Ом"
                 text_size: self.size
@@ -75,7 +75,7 @@
             halign: "center"
             valign: "center"
             on_release: root.divider_calculate_vout(v_in.text, r1.text, r2.text)
-        MDLabel:
+        Label:
             canvas.before:
                 Color:
                     rgba: 1,1,1,1
@@ -83,26 +83,26 @@
                     size: self.size
                     pos: self.pos
             size_hint_y: 0.05
-        MDLabel:
+        Label:
             text: "Результат:"
             text_size: self.size
             font_size: app.app_font_size
             halign: "center"
             valign: "center"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Выходное напряжение:"
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            MDLabel:
+            Label:
                 id: v_out
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            MDLabel:
+            Label:
                 text: "В"
                 size_hint_x: 0.1
                 text_size: self.size
@@ -110,25 +110,25 @@
                 halign: "center"
                 valign: "center"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Коэффициент делителя"
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            MDLabel:
+            Label:
                 id: divider_rate
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            MDLabel:
+            Label:
                 size_hint_x: 0.1
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-        MDLabel:
+        Label:
             canvas.before:
                 Color:
                     rgba: 1,1,1,1
@@ -137,7 +137,7 @@
                     pos: self.pos
             size_hint_y: 0.05
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Напряжение источника питания:"
                 text_size: self.size
                 font_size: app.app_font_size
@@ -151,7 +151,7 @@
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate:
-            MDLabel:
+            Label:
                 size_hint_x: 0.1
                 text: "В"
                 text_size: self.size
@@ -159,7 +159,7 @@
                 halign: "center"
                 valign: "center"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Выходное напряжение:"
                 text_size: self.size
                 font_size: app.app_font_size
@@ -173,7 +173,7 @@
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate:
-            MDLabel:
+            Label:
                 size_hint_x: 0.1
                 text: "В"
                 text_size: self.size
@@ -181,7 +181,7 @@
                 halign: "center"
                 valign: "center"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Сопротивление R1:"
                 text_size: self.size
                 font_size: app.app_font_size
@@ -195,7 +195,7 @@
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate:
-            MDLabel:
+            Label:
                 size_hint_x: 0.1
                 text: "Ом"
                 text_size: self.size
@@ -209,7 +209,7 @@
             halign: "center"
             valign: "center"
             on_release: root.divider_calculate_r(v_in_r.text, v_out_r.text, r1_input.text)
-        MDLabel:
+        Label:
             canvas.before:
                 Color:
                     rgba: 1,1,1,1
@@ -217,59 +217,59 @@
                     size: self.size
                     pos: self.pos
             size_hint_y: 0.05
-        MDLabel:
+        Label:
             text: "Результат:"
             text_size: self.size
             font_size: app.app_font_size
             halign: "center"
             valign: "center"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Сопротивление R2"
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            MDLabel:
+            Label:
                 id: r2_calculated
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Коэффициент делителя"
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            MDLabel:
+            Label:
                 id: divider_rate_r
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Резистор стандартного ряда"
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            MDLabel:
+            Label:
                 id: r2_e24
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Выходное напряжение с резистором из стандартного ряда"
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            MDLabel:
+            Label:
                 id: vout_e24
                 text_size: self.size
                 font_size: app.app_font_size

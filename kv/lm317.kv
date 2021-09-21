@@ -37,7 +37,7 @@
     BoxLayout:
         orientation: "vertical"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Выходное напряжение:"
                 text_size: self.size
                 font_size: app.app_font_size
@@ -51,7 +51,7 @@
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate:
-            MDLabel:
+            Label:
                 size_hint_x: 0.1
                 text: "В"
                 text_size: self.size
@@ -59,7 +59,7 @@
                 halign: "center"
                 valign: "center"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Сопротивление R1:"
                 text_size: self.size
                 font_size: app.app_font_size
@@ -73,7 +73,7 @@
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate:
-            MDLabel:
+            Label:
                 size_hint_x: 0.1
                 text: "Ом"
                 text_size: self.size
@@ -81,7 +81,7 @@
                 halign: "center"
                 valign: "center"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Ток нагрузки:"
                 text_size: self.size
                 font_size: app.app_font_size
@@ -95,7 +95,7 @@
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate:
-            MDLabel:
+            Label:
                 size_hint_x: 0.1
                 text: "А"
                 text_size: self.size
@@ -103,7 +103,7 @@
                 halign: "center"
                 valign: "center"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Входное напряжение:"
                 text_size: self.size
                 font_size: app.app_font_size
@@ -117,7 +117,7 @@
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate:
-            MDLabel:
+            Label:
                 size_hint_x: 0.1
                 text: "В"
                 text_size: self.size
@@ -131,7 +131,7 @@
             halign: "center"
             valign: "center"
             on_release: root.calculate_lm317_voltage(lm317_vout_input.text, lm317_r1_input.text, lm317_iout_input.text, lm317_vin_input.text)
-        MDLabel:
+        Label:
             canvas.before:
                 Color:
                     rgba: 1,1,1,1
@@ -140,13 +140,13 @@
                     pos: self.pos
             size_hint_y: 0.05
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Сопротивление R2:"
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            MDLabel:
+            Label:
                 id: lm317_r2_output
                 size_hint_x: 0.3
                 text_size: self.size
@@ -154,13 +154,13 @@
                 halign: "center"
                 valign: "center"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Стандартное сопротивление R2:"
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            MDLabel:
+            Label:
                 id: lm317_r2_corrected_output
                 size_hint_x: 0.3
                 text_size: self.size
@@ -168,13 +168,13 @@
                 halign: "center"
                 valign: "center"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Выходное напряжение:"
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            MDLabel:
+            Label:
                 id: lm317_vout_output
                 size_hint_x: 0.3
                 text_size: self.size
@@ -182,13 +182,13 @@
                 halign: "center"
                 valign: "center"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Рекомендуемый тип стабилизатора:"
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            MDLabel:
+            Label:
                 id: lm317_recommend_output
                 size_hint_x: 0.3
                 text_size: self.size
@@ -196,13 +196,13 @@
                 halign: "center"
                 valign: "center"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Рассеиваемая мощность:"
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            MDLabel:
+            Label:
                 id: lm317_power_output
                 size_hint_x: 0.3
                 text_size: self.size
@@ -230,7 +230,7 @@
     BoxLayout:
         orientation: "vertical"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Выходной ток:"
                 text_size: self.size
                 font_size: app.app_font_size
@@ -244,7 +244,7 @@
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate:
-            MDLabel:
+            Label:
                 size_hint_x: 0.1
                 text: "А"
                 text_size: self.size
@@ -252,7 +252,7 @@
                 halign: "center"
                 valign: "center"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Падение напряжения на нагрузке:"
                 text_size: self.size
                 font_size: app.app_font_size
@@ -266,7 +266,7 @@
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate:
-            MDLabel:
+            Label:
                 size_hint_x: 0.1
                 text: "В"
                 text_size: self.size
@@ -280,7 +280,7 @@
             halign: "center"
             valign: "center"
             on_release: root.calculate_lm317_current(lm317_iout_input_cur.text, lm317_vout_input_cur.text)
-        MDLabel:
+        Label:
             canvas.before:
                 Color:
                     rgba: 1,1,1,1
@@ -289,13 +289,13 @@
                     pos: self.pos
             size_hint_y: 0.05
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Сопротивление R1:"
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            MDLabel:
+            Label:
                 id: lm317_r1_output_cur
                 size_hint_x: 0.3
                 text_size: self.size
@@ -303,13 +303,13 @@
                 halign: "center"
                 valign: "center"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Сопротивление R1 из стандартного ряда:"
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            MDLabel:
+            Label:
                 id: lm317_r1_corrected_output_cur
                 size_hint_x: 0.3
                 text_size: self.size
@@ -317,13 +317,13 @@
                 halign: "center"
                 valign: "center"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Мощность:"
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            MDLabel:
+            Label:
                 id: lm317_r1_power_output_cur
                 size_hint_x: 0.3
                 text_size: self.size
@@ -331,13 +331,13 @@
                 halign: "center"
                 valign: "center"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Мощность с резистором из стандартного ряда:"
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            MDLabel:
+            Label:
                 id: lm317_r1_power_corrected_output_cur
                 size_hint_x: 0.3
                 text_size: self.size
@@ -345,13 +345,13 @@
                 halign: "center"
                 valign: "center"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Выходной ток с резистором из стандартного ряда:"
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            MDLabel:
+            Label:
                 id: lm317_iout_corrected_output_cur
                 size_hint_x: 0.3
                 text_size: self.size
@@ -359,13 +359,13 @@
                 halign: "center"
                 valign: "center"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Рекомендуемый тип стабилизатора:"
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            MDLabel:
+            Label:
                 id: lm317_recommend_output_cur
                 size_hint_x: 0.3
                 text_size: self.size
@@ -373,13 +373,13 @@
                 halign: "center"
                 valign: "center"
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Входное напряжение, не менее:"
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            MDLabel:
+            Label:
                 id: lm317_vin_output_cur
                 size_hint_x: 0.3
                 text_size: self.size

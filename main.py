@@ -1,4 +1,4 @@
-from kivymd.app import MDApp
+from kivy.app import App
 
 import ResistorScreen, CapacitorScreen, VoltageDividerCalculateScreen, ResistorLEDCalculateScreen, \
     InductorCalculateScreen, LM317Current, LM317Voltage, ParallelResistorCalculateScreen, \
@@ -69,7 +69,7 @@ class MySpinnerOption(SpinnerOption):
               "violet": [0.54, 0.14, 0.59, 1], "grey": [0.5, 0.5, 0.5, 1], "white": [1, 1, 1, 1]}
 
 
-class RadioHelperApp(MDApp):
+class RadioHelperApp(App):
 
     app_font_size = NumericProperty()
     app_header_size = NumericProperty()

@@ -29,7 +29,7 @@
             halign: "center"
             valign: "center"
             on_release: root.ser_cap_calculate()
-        MDLabel:
+        Label:
             canvas.before:
                 Color:
                     rgba: 1,1,1,1
@@ -38,13 +38,13 @@
                     pos: self.pos
             size_hint_y: 0.05
         BoxLayout:
-            MDLabel:
+            Label:
                 text: "Результат:"
                 text_size: self.size
                 font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-            MDLabel:
+            Label:
                 id: ser_cap_output
                 text_size: self.size
                 font_size: app.app_font_size

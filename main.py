@@ -1,10 +1,13 @@
 from kivymd.app import MDApp
-from kivy.lang import Builder
+from kivymd.uix.bottomnavigation import MDBottomNavigation
 
+
+class MainScreen(MDBottomNavigation):
+    pass
 
 class RadioHelperMD(MDApp):
-
     def build(self):
-        return
+        return MainScreen()
+
 
 RadioHelperMD().run()

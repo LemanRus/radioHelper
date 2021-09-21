@@ -114,9 +114,8 @@ class ResistorScreen(Screen):
             except KeyError:
                 continue
 
-    def colourize(self, one, two):
+    def colourize(self, *args):
         for key, band in self.dynamic_vars.items():
-            print(one, two)
             if key.startswith("band"):
                 band.background_color = self.colors[band.text]
                 if band.text == "yellow" or band.text == "gold" or band.text == "white":

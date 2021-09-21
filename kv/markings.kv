@@ -1,0 +1,31 @@
+<Markings>:
+    name: "nominal"
+    BoxLayout:
+        orientation: "vertical"
+        MDLabel:
+            text: "Маркировки компонентов"
+            #font_size: app.app_header_size
+            size_hint_y: None
+            height: 40
+            halign: "center"
+        Button:
+            text: "Резисторы"
+            #font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
+            on_release: root.manager.current = "resistor"
+        Button:
+            text: "Конденсаторы"
+            #font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
+            on_release: root.manager.current = "capacitor"
+        Button:
+            text: "На главный"
+            #font_size: app.app_button_size
+            text_size: self.size
+            halign: "center"
+            valign: "center"
+            on_release: root.manager.current = "main"

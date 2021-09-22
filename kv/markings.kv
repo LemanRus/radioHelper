@@ -11,21 +11,21 @@
                     size_hint_y: None
                     height: 40
                     halign: "center"
-                Button:
+                MDRaisedButton:
                     text: "Резисторы"
                     #font_size: app.app_button_size
                     text_size: self.size
                     halign: "center"
                     valign: "center"
                     on_release: test.manager.current = "resistor"
-                Button:
+                MDRaisedButton:
                     text: "Конденсаторы"
                     #font_size: app.app_button_size
                     text_size: self.size
                     halign: "center"
                     valign: "center"
 #                    on_release: root.manager.current = "capacitor"
-                Button:
+                MDRaisedButton:
                     text: "На главный"
                     #font_size: app.app_button_size
                     text_size: self.size
@@ -69,7 +69,7 @@
                     MDLabel:
                         size_hint_x: 0.25
 
-                Button:
+                MDRaisedButton:
                     text: "Рассчитать!"
 #                    font_size: app.app_button_size
                     text_size: self.size
@@ -97,9 +97,9 @@
                         halign: "center"
                         padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
 #                        on_text_validate: root.calculate_smd_resistor(self.text)
-                    Button:
+                    MDRaisedButton:
                         text: "Рассчитать"
-                        size_hint_x: 0.2
+                        size_hint: 0.2, None
 #                        font_size: app.app_button_size
                         text_size: self.size
                         halign: "center"
@@ -111,7 +111,7 @@
 #                    font_size: app.app_font_size
                     halign: "center"
                     valign: "center"
-                Button:
+                MDRaisedButton:
                     text: "Назад"
 #                        font_size: app.app_button_size
                     text_size: self.size
@@ -119,10 +119,3 @@
                     valign: "center"
 #                        on_release: root.manager.current = "nominal"
 # TODO: Реализовать функционал кнопки "назад"
-                Button:
-                    text: "На главный"
-#                        font_size: app.app_button_size
-                    text_size: self.size
-                    halign: "center"
-                    valign: "center"
-#                        on_release: root.manager.current = "main"

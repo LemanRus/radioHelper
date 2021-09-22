@@ -1,4 +1,6 @@
 #:import Clipboard kivy.core.clipboard.Clipboard
+#:import toast kivymd.toast.toast
+#:import webbrowser webbrowser
 
 <AboutScreen>:
     name: "about"
@@ -46,7 +48,7 @@
                 pos_hint: {"center_x": 0.5, "center_y": .5}
                 user_font_size: "24sp"
                 on_press: Clipboard.copy("bc1qz070d7tgupm8sr0paan5v6dnaqdj8lmjazamql")
-                on_release: Factory.MyPopup().open()
+                on_release: toast("Текст скопирован!")
             Widget:
                 size_hint_x: 0.03
         BoxLayout:
@@ -65,14 +67,14 @@
                 icon: "img/outer_link.png"
                 pos_hint: {"center_x": 0.5, "center_y": .5}
                 user_font_size: "24sp"
-                on_press: root.link_to_founding("https://sobe.ru/na/podderzhat_avtora_prilozheniya")
+                on_press: webbrowser.open("https://sobe.ru/na/podderzhat_avtora_prilozheniya")
             Widget:
                 size_hint_x: 0.03
-        Button:
+        MDRaisedButton:
             text: "На главный"
 #            font_size: app.app_button_size
             text_size: self.size
-            size_hint_y: None
+            size_hint: None, None
             height: 40
             halign: "center"
             valign: "center"

@@ -1,6 +1,6 @@
 from kivy.factory import Factory
 from kivy.lang import Builder
-from kivy.uix.screenmanager import Screen
+from kivy.uix.screenmanager import Screen, ScreenManager
 from kivymd.app import MDApp
 from kivymd.uix.bottomnavigation import MDBottomNavigation, MDBottomNavigationItem
 
@@ -22,6 +22,7 @@ class RadioHelperMD(MDApp):
         Builder.load_file("kv/markings.kv")
         Builder.load_file("kv/calculations.kv")
         Builder.load_file("kv/about_screen.kv")
+        # Builder.load_file("kv/screen_changer.kv")
         return Builder.load_file("kv/main.kv")
 
 

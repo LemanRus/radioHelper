@@ -22,7 +22,6 @@ class RadioHelperMD(MDApp):
         Builder.load_file("kv/markings.kv")
         Builder.load_file("kv/calculations.kv")
         Builder.load_file("kv/about_screen.kv")
-        # Builder.load_file("kv/screen_changer.kv")
         return Builder.load_file("kv/main.kv")
 
 

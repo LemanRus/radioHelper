@@ -24,14 +24,14 @@
                     text_size: self.size
                     halign: "center"
                     valign: "center"
-                    on_release: root.manager.current = "capacitor"
+#                    on_release: root.manager.current = "capacitor"
                 Button:
                     text: "На главный"
                     #font_size: app.app_button_size
                     text_size: self.size
                     halign: "center"
                     valign: "center"
-                    on_release: root.manager.current = "main"
+#                    on_release: root.manager.current = "main"
         Screen:
             name: "resistor"
             BoxLayout:
@@ -75,7 +75,7 @@
                     text_size: self.size
                     halign: "center"
                     valign: "center"
-                    on_release: root.calculate_resistor()
+#                    on_release: root.calculate_resistor()
                 MDLabel:
                     id: resistance
                     text_size: self.size
@@ -96,7 +96,7 @@
                         multiline: False
                         halign: "center"
                         padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
-                        on_text_validate: root.calculate_smd_resistor(self.text)
+#                        on_text_validate: root.calculate_smd_resistor(self.text)
                     Button:
                         text: "Рассчитать"
                         size_hint_x: 0.2
@@ -104,25 +104,25 @@
                         text_size: self.size
                         halign: "center"
                         valign: "center"
-                        on_release: root.calculate_smd_resistor(smd_input.text)
+#                        on_release: root.calculate_smd_resistor(smd_input.text)
                 MDLabel:
                     id: smd_resistance
                     text_size: self.size
 #                    font_size: app.app_font_size
                     halign: "center"
                     valign: "center"
-                BoxLayout:
-                    Button:
-                        text: "Назад"
+                Button:
+                    text: "Назад"
 #                        font_size: app.app_button_size
-                        text_size: self.size
-                        halign: "center"
-                        valign: "center"
-                        on_release: root.manager.current = "nominal"
-                    Button:
-                        text: "На главный"
+                    text_size: self.size
+                    halign: "center"
+                    valign: "center"
+#                        on_release: root.manager.current = "nominal"
+# TODO: Реализовать функционал кнопки "назад"
+                Button:
+                    text: "На главный"
 #                        font_size: app.app_button_size
-                        text_size: self.size
-                        halign: "center"
-                        valign: "center"
-                        on_release: root.manager.current = "main"
+                    text_size: self.size
+                    halign: "center"
+                    valign: "center"
+#                        on_release: root.manager.current = "main"

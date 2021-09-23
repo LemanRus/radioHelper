@@ -5,55 +5,104 @@
         MDLabel:
             text: "Расчёт компонентов"
             #font_size: app.app_header_size
-            size_hint_y: None
-            height: 40
+            adaptive_height: True
             halign: "center"
-        MDRaisedButton:
-            text: "Расчёт резисторов для светодиодов"
-            #font_size: app.app_button_size
             text_size: self.size
-            halign: "center"
-            valign: "center"
-#            on_release: root.manager.current = "LED_cal"
-        MDRaisedButton:
-            text: "Расчёт катушки индуктивности"
-            #font_size: app.app_button_size
-            text_size: self.size
-            halign: "center"
-            valign: "center"
-#            on_release: root.manager.current = "inductor_cal"
-        MDRaisedButton:
-            text: "Параллельное соединение резисторов"
-            #font_size: app.app_button_size
-            text_size: self.size
-            halign: "center"
-            valign: "center"
-#            on_release: root.manager.current = "par_resistor_cal"
-        MDRaisedButton:
-            text: "Последовательное соединение конденсаторов"
-            #font_size: app.app_button_size
-            text_size: self.size
-            halign: "center"
-            valign: "center"
-#            on_release: root.manager.current = "ser_capacitor_cal"
-        MDRaisedButton:
-            text: "Делитель напряжения"
-            #font_size: app.app_button_size
-            text_size: self.size
-            halign: "center"
-            valign: "center"
-#            on_release: root.manager.current = "divider_cal"
-        MDRaisedButton:
-            text: "LM317/LM350/LM338 калькулятор"
-            #font_size: app.app_button_size
-            text_size: self.size
-            halign: "center"
-            valign: "center"
-#            on_release: root.manager.current = "lm317_cal"
-        MDRaisedButton:
-            text: "На главный"
-            #font_size: app.app_button_size
-            text_size: self.size
-            halign: "center"
-            valign: "center"
-#            on_release: root.manager.current = "main"
+        MDCard:
+            padding: 80, 10, 10, 10
+            MDIcon:
+                icon: "rectangle-outline"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+            MDRaisedButton:
+                text: "Расчёт резисторов для светодиодов"
+                #font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+    #            on_release: root.manager.current = "LED_cal"
+            Widget:
+        MDCard:
+            padding: 80, 10, 10, 10
+            MDIcon:
+                icon: "rectangle-outline"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+            MDRaisedButton:
+                text: "Расчёт катушки индуктивности"
+                #font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+    #            on_release: root.manager.current = "inductor_cal"
+            Widget:
+        MDCard:
+            padding: 80, 10, 10, 10
+            MDIcon:
+                icon: "rectangle-outline"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+            MDRaisedButton:
+                text: "Параллельное соединение резисторов"
+                #font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+    #            on_release: root.manager.current = "par_resistor_cal"
+            Widget:
+        MDCard:
+            padding: 80, 10, 10, 10
+            MDIcon:
+                icon: "rectangle-outline"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+            MDRaisedButton:
+                text: "Последовательное соединение конденсаторов"
+                #font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+    #            on_release: root.manager.current = "ser_capacitor_cal"
+            Widget:
+        MDCard:
+            padding: 80, 10, 10, 10
+            MDIcon:
+                icon: "rectangle-outline"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+            MDRaisedButton:
+                text: "Делитель напряжения"
+                #font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+    #            on_release: root.manager.current = "divider_cal"
+            Widget:
+        MDCard:
+            padding: 80, 10, 10, 10
+            MDIcon:
+                icon: "rectangle-outline"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+            MDRaisedButton:
+                text: "LM317/LM350/LM338 калькулятор"
+                #font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+    #            on_release: root.manager.current = "lm317_cal"
+            Widget:
+        MDCard:
+            padding: 80, 10, 10, 10
+            MDIcon:
+                icon: "rectangle-outline"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+            MDRaisedButton:
+                text: "На главный"
+                #font_size: app.app_button_size
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+    #            on_release: root.manager.current = "main"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+            Widget:

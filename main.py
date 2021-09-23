@@ -1,19 +1,21 @@
-from kivy.factory import Factory
 from kivy.lang import Builder
-from kivy.uix.screenmanager import Screen, ScreenManager
 from kivymd.app import MDApp
-from kivymd.uix.bottomnavigation import MDBottomNavigation, MDBottomNavigationItem
+from kivymd.uix.screen import MDScreen
 
 
-class Markings(Screen):
+class NominalsScreen(MDScreen):
     pass
 
 
-class Calculations(Screen):
+class Markings(MDScreen):
     pass
 
 
-class AboutScreen(Screen):
+class Calculations(MDScreen):
+    pass
+
+
+class AboutScreen(MDScreen):
     pass
 
 
@@ -22,6 +24,7 @@ class RadioHelperMD(MDApp):
         Builder.load_file("kv/markings.kv")
         Builder.load_file("kv/calculations.kv")
         Builder.load_file("kv/about_screen.kv")
+        Builder.load_file("kv/nominals.kv")
         return Builder.load_file("kv/main.kv")
 
 

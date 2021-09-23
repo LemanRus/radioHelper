@@ -1,38 +1,9 @@
 <Markings>:
     ScreenManager:
-        Screen:
+        NominalsScreen:
+        # TODO: Вынести в отдельный .kv файл
+        MDScreen:
             id: test
-            name: "nominal"
-            BoxLayout:
-                orientation: "vertical"
-                MDLabel:
-                    text: "Маркировки компонентов"
-                    #font_size: app.app_header_size
-                    size_hint_y: None
-                    height: 40
-                    halign: "center"
-                MDRaisedButton:
-                    text: "Резисторы"
-                    #font_size: app.app_button_size
-                    text_size: self.size
-                    halign: "center"
-                    valign: "center"
-                    on_release: test.manager.current = "resistor"
-                MDRaisedButton:
-                    text: "Конденсаторы"
-                    #font_size: app.app_button_size
-                    text_size: self.size
-                    halign: "center"
-                    valign: "center"
-#                    on_release: root.manager.current = "capacitor"
-                MDRaisedButton:
-                    text: "На главный"
-                    #font_size: app.app_button_size
-                    text_size: self.size
-                    halign: "center"
-                    valign: "center"
-#                    on_release: root.manager.current = "main"
-        Screen:
             name: "resistor"
             BoxLayout:
                 orientation: "vertical"
@@ -43,7 +14,7 @@
                         halign: "center"
                         valign: "center"
 #                        font_size: app.app_font_size
-                        size_hint_x: 2
+#                        size_hint_x: 2
                     Spinner:
                         id: main_spinner
                         text: '3'
@@ -61,13 +32,13 @@
                     id: resistor_grid
                     size_hint_y: 1.5
                     MDLabel:
-                        size_hint_x: 0.25
+#                        size_hint_x: 0.25
                     BoxLayout:
                         id: resistor_bands
                         size_hint_y: 0.75
                         pos_hint: {'center_x': 0.5, 'center_y': 0.5}
                     MDLabel:
-                        size_hint_x: 0.25
+#                        size_hint_x: 0.25
 
                 MDRaisedButton:
                     text: "Рассчитать!"
@@ -88,7 +59,7 @@
                     halign: "center"
                     valign: "center"
 #                    font_size: app.app_font_size
-                    size_hint_y: 2
+#                    size_hint_y: 2
                 BoxLayout:
                     TextInput:
                         id: smd_input
@@ -99,7 +70,7 @@
 #                        on_text_validate: root.calculate_smd_resistor(self.text)
                     MDRaisedButton:
                         text: "Рассчитать"
-                        size_hint: 0.2, None
+#                        size_hint: 0.2, None
 #                        font_size: app.app_button_size
                         text_size: self.size
                         halign: "center"
@@ -117,5 +88,5 @@
                     text_size: self.size
                     halign: "center"
                     valign: "center"
-#                        on_release: root.manager.current = "nominal"
+                    on_release: test.manager.current = "nominals"
 # TODO: Реализовать функционал кнопки "назад"

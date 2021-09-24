@@ -1,3 +1,5 @@
+import os
+
 from kivy.lang import Builder
 from kivymd.app import MDApp
 from kivymd.uix.screen import MDScreen
@@ -25,11 +27,11 @@ class ResistorsMarking(MDScreen):
 
 class RadioHelperMD(MDApp):
     def build(self):
-        Builder.load_file("kv/markings.kv")
-        Builder.load_file("kv/calculations.kv")
-        Builder.load_file("kv/about_screen.kv")
-        Builder.load_file("kv/nominals.kv")
-        Builder.load_file("kv/resistors_marking.kv")
+        Builder.load_file("kv/misc.kv")
+        kv = os.listdir("kv")
+        for kv_file in kv:
+            if kv_file != "misc.kv":
+                Builder.load_file("kv/" + kv_file)
         return Builder.load_file("kv/main.kv")
 
 

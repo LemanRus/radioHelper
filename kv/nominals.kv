@@ -3,13 +3,15 @@
     name: "nominals"
     BoxLayout:
         orientation: "vertical"
-        MDLabel:
+        MDScreenTitle:
             text: "Маркировки компонентов"
             #font_size: app.app_header_size
 #                        size_hint: 1, None
-            adaptive_height: True
-            halign: "center"
-            text_size: self.size
+        MDSeparator:
+            height: dp(3)
+        BoxLayout:
+            GridLayout:
+                cols: 1
         MDCard:
             padding: 80, 10, 10, 10
             MDIcon:

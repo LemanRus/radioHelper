@@ -4,11 +4,9 @@
     BoxLayout:
         orientation: "vertical"
         BoxLayout:
-            MDLabel:
+            MDLabelCenter:
                 text: "Для резисторов сквозного монтажа выберите количество полос:"
-                text_size: self.size
-                halign: "center"
-                valign: "center"
+
 #                        font_size: app.app_font_size
 #                        size_hint_x: 2
             Spinner:
@@ -43,19 +41,13 @@
             halign: "center"
             valign: "center"
 #                    on_release: root.calculate_resistor()
-        MDLabel:
+        MDLabelCenter:
             id: resistance
-            text_size: self.size
-#                    font_size: app.app_font_size
-            halign: "center"
-            valign: "center"
-        MDLabel:
+
+        MDLabelCenter:
             text: "Для SMD резистора впишите в поле ниже маркировку с резистора: "
             text_size: self.size
-            halign: "center"
-            valign: "center"
-#                    font_size: app.app_font_size
-#                    size_hint_y: 2
+
         BoxLayout:
             TextInput:
                 id: smd_input
@@ -72,12 +64,9 @@
                 halign: "center"
                 valign: "center"
 #                        on_release: root.calculate_smd_resistor(smd_input.text)
-        MDLabel:
+        MDLabelCenter:
             id: smd_resistance
-            text_size: self.size
-#                    font_size: app.app_font_size
-            halign: "center"
-            valign: "center"
+
         MDRaisedButton:
             text: "Назад"
 #                        font_size: app.app_button_size

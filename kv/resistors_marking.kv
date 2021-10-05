@@ -1,3 +1,9 @@
+<MySpinnerOption>:
+#    font_size: app.app_button_size
+    color: [0, 0, 0, 1] if self.text in ["white", "yellow", "gold", "silver"] else [1, 1, 1, 1]
+    background_color: self.colors[self.text] if self.text in self.colors.keys() else [0.5, 0.5, 0.5, 1]
+    background_normal: ""
+
 <ResistorsMarking>:
     id: test
     name: "resistor"
@@ -14,9 +20,9 @@
                 text: '3'
 #                        font_size: app.app_button_size
                 values: '3', '4', '5', '6'
-#                        on_parent: root.build_resistor(self.text)
-#                        on_text: root.build_resistor(self.text)
-#                        option_cls: "MySpinnerOption"
+                on_parent: root.build_resistor(self.text)
+                on_text: root.build_resistor(self.text)
+                option_cls: "MySpinnerOption"
         BoxLayout:
             canvas.before:
                 Rectangle:
@@ -40,7 +46,7 @@
             text_size: self.size
             halign: "center"
             valign: "center"
-#                    on_release: root.calculate_resistor()
+            on_release: root.calculate_resistor()
         MDLabelCenter:
             id: resistance
 
@@ -74,4 +80,3 @@
             halign: "center"
             valign: "center"
             on_release: test.manager.current = "nominals"
-# TODO: Реализовать функционал кнопки "назад"

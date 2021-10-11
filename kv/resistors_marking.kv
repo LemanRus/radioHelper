@@ -5,7 +5,7 @@
     background_normal: ""
 
 <ResistorsMarking>:
-    id: test
+    id: resistor
     name: "resistor"
     BoxLayout:
         orientation: "vertical"
@@ -79,4 +79,4 @@
             text_size: self.size
             halign: "center"
             valign: "center"
-            on_release: test.manager.current = "nominals"
+            on_release: resistor.manager.current = "nominals"

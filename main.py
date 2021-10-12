@@ -1,6 +1,6 @@
 import os
 
-import ResistorsMarking
+import ResistorsMarking, CapacitorsMarking
 
 from kivy.lang import Builder
 from kivy.uix.spinner import SpinnerOption

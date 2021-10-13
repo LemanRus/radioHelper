@@ -1,4 +1,5 @@
 <Calculations>:
+# TODO Добавить Screenmanager
     name: "calculations"
     BoxLayout:
         orientation: "vertical"
@@ -19,7 +20,7 @@
                 halign: "center"
                 valign: "center"
                 pos_hint: {"center_x": 0.5, "center_y": .5}
-    #            on_release: root.manager.current = "LED_cal"
+                on_release: root.manager.current = "LED_cal"
             Widget:
         MDCard:
             padding: 80, 10, 10, 10

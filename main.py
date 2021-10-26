@@ -20,6 +20,10 @@ class Calculations(MDScreen):
     pass
 
 
+class CalculationListScreen(MDScreen):
+    pass
+
+
 class Handbook(MDScreen):
     pass
 

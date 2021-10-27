@@ -3,6 +3,7 @@
         CalculationListScreen:
         ResistorLEDCalculateScreen:
         InductorCalculateScreen:
+        ParallelResistorCalculateScreen:
 
 <CalculationListScreen>:
     name: "calculations"
@@ -53,7 +54,7 @@
                 halign: "center"
                 valign: "center"
                 pos_hint: {"left": 1, "center_y": .5}
-    #            on_release: root.manager.current = "par_resistor_cal"
+                on_release: root.manager.current = "par_resistor_cal"
             Widget:
         MDCard:
             padding: 80, 10, 10, 10

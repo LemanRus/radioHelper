@@ -5,6 +5,7 @@
         InductorCalculateScreen:
         ParallelResistorCalculateScreen:
         SerialCapacitorCalculateScreen:
+        VoltageDividerCalculateScreen:
 
 <CalculationListScreen>:
     name: "calculations"
@@ -83,7 +84,7 @@
                 halign: "center"
                 valign: "center"
                 pos_hint: {"center_x": 0.5, "center_y": .5}
-    #            on_release: root.manager.current = "divider_cal"
+                on_release: root.manager.current = "divider_cal"
             Widget:
         MDCard:
             padding: 80, 10, 10, 10
@@ -97,5 +98,5 @@
                 halign: "center"
                 valign: "center"
                 pos_hint: {"center_x": 0.5, "center_y": .5}
-    #            on_release: root.manager.current = "lm317_cal"
+                on_release: root.manager.current = "lm317_cal"
             Widget:

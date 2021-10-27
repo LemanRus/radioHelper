@@ -1,7 +1,7 @@
 import os
 
 import ResistorsMarking, CapacitorsMarking, ResistorLEDCalculateScreen, InductorCalculateScreen, \
-    ParallelResistorCalculateScreen
+    ParallelResistorCalculateScreen, SerialCapacitorCalculateScreen
 
 from kivy.lang import Builder
 from kivy.uix.spinner import SpinnerOption

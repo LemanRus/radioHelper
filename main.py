@@ -1,7 +1,8 @@
 import os
 
 import ResistorsMarking, CapacitorsMarking, ResistorLEDCalculateScreen, InductorCalculateScreen, \
-    ParallelResistorCalculateScreen, SerialCapacitorCalculateScreen, VoltageDividerCalculateScreen
+    ParallelResistorCalculateScreen, SerialCapacitorCalculateScreen, VoltageDividerCalculateScreen, LM317Voltage, \
+    LM317Current
 
 from kivy.lang import Builder
 from kivy.uix.spinner import SpinnerOption
@@ -21,12 +22,17 @@ class Calculations(MDScreen):
     pass
 
 
+class LM317CalculateScreen(MDScreen):
+    pass
+
+
 class CalculationListScreen(MDScreen):
     pass
 
 
 class Handbook(MDScreen):
     pass
+
 
 class AboutScreen(MDScreen):
     pass

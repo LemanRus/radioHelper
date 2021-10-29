@@ -1,5 +1,7 @@
 <Calculations>:
     ScreenManager:
+        id: calculations_sm
+        on_parent: app.add_me_to_sm(self, list(root.ids.keys())[0])
         CalculationListScreen:
         ResistorLEDCalculateScreen:
         InductorCalculateScreen:

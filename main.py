@@ -70,6 +70,8 @@ class RadioHelperMD(MDApp):
                 if key == "calculations_sm":
                     if value.current != "calculations":
                         value.current = "calculations"
+                if key == "markings_sm":
+                    value.current = "nominals"
             return True
 
 RadioHelperMD().run()

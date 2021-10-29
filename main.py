@@ -68,8 +68,10 @@ class RadioHelperMD(MDApp):
         if key == 27:
             for key, value in self.screen_manager_for_back.items():
                 if key == "calculations_sm":
-                    if value.current != "calculations":
+                    if value.current not in ["LM317_voltage", "LM317_current"]:
                         value.current = "calculations"
+                    else:
+                        value.current = "lm317_cal"
                 if key == "markings_sm":
                     value.current = "nominals"
             return True

@@ -21,34 +21,32 @@
             GridLayout:
                 cols: 1
                 MDCard:
-                    padding: 80, 10, 10, 10
+                    padding: 30, 10, 10, 10
                     size_hint: 1, None
+                    ripple_behavior: True
+                    on_release: root.manager.current = "resistor"
                     MDIcon:
                         icon: "rectangle-outline"
                         pos_hint: {"center_x": 0.5, "center_y": .5}
-                    MDFlatButton:
+                        size_hint_x: None
+                    MDLabel:
+                        pos_hint: {"center_x": 0.5, "center_y": .5}
+#                        size_hint: None, 1
                         text: "Резисторы"
-                        pos_hint: {"center_x": 0.5, "center_y": .5} # TODO сместить налево
-        #                        size_hint: 1, 1
-                        #font_size: app.app_button_size
                         text_size: self.size
-                        halign: "center"
                         valign: "center"
-                        on_release: root.manager.current = "resistor"
-                    Widget:
                 MDCard:
-                    padding: 80, 10, 10, 10
+                    padding: 30, 10, 10, 10
                     size_hint: 1, None
+                    ripple_behavior: True
+                    on_release: root.manager.current = "capacitor"
                     MDIcon:
                         icon: "arrow-split-vertical"
                         pos_hint: {"center_x": 0.5, "center_y": .5}
-                    MDFlatButton:
+                        size_hint_x: None
+                    MDLabel:
                         pos_hint: {"center_x": 0.5, "center_y": .5}
+#                        size_hint: None, 1
                         text: "Конденсаторы"
-        #                        size_hint: 1, 1
-                        #font_size: app.app_button_size
                         text_size: self.size
-                        halign: "center"
                         valign: "center"
-                        on_release: root.manager.current = "capacitor"
-                    Widget:

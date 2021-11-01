@@ -1,32 +1,29 @@
-BoxLayout:
-    orientation: "vertical"
+MDBottomNavigation:
+    MDBottomNavigationItem:
+        name: "screen1"
+        icon: "resistor"
+        text: "Маркировки"
 
-    MDBottomNavigation:
-        MDBottomNavigationItem:
-            name: "screen1"
-            icon: "resistor"
-            text: "Маркировки"
+        Markings:
 
-            Markings:
+    MDBottomNavigationItem:
+        name: "screen2"
+        icon: "calculator"
+        text: "Расчёты"
 
-        MDBottomNavigationItem:
-            name: "screen2"
-            icon: "calculator"
-            text: "      Расчёты\nкомпонентов"
+        Calculations:
 
-            Calculations:
+    MDBottomNavigationItem:
+        name: "screen3"
+        icon: "book-open-page-variant"
+        text: "Справочник"
+        halign: "center"
 
-        MDBottomNavigationItem:
-            name: "screen3"
-            icon: "book-open-page-variant"
-            text: "Справочные\n материалы"
-            halign: "center"
+        Handbook:
 
-            Handbook:
+    MDBottomNavigationItem:
+        name: "screen4"
+        icon: "help"
+        text: "О программе"
 
-        MDBottomNavigationItem:
-            name: "screen4"
-            icon: "help"
-            text: "О программе"
-
-            AboutScreen:
+        AboutScreen:

@@ -22,12 +22,13 @@
                 cols: 1
                 MDCard:
                     padding: 80, 10, 10, 10
+                    size_hint: 1, None
                     MDIcon:
                         icon: "rectangle-outline"
                         pos_hint: {"center_x": 0.5, "center_y": .5}
-                    MDRaisedButton:
+                    MDFlatButton:
                         text: "Резисторы"
-                        pos_hint: {"center_x": 0.5, "center_y": .5}
+                        pos_hint: {"center_x": 0.5, "center_y": .5} # TODO сместить налево
         #                        size_hint: 1, 1
                         #font_size: app.app_button_size
                         text_size: self.size
@@ -37,10 +38,11 @@
                     Widget:
                 MDCard:
                     padding: 80, 10, 10, 10
+                    size_hint: 1, None
                     MDIcon:
                         icon: "arrow-split-vertical"
                         pos_hint: {"center_x": 0.5, "center_y": .5}
-                    MDRaisedButton:
+                    MDFlatButton:
                         pos_hint: {"center_x": 0.5, "center_y": .5}
                         text: "Конденсаторы"
         #                        size_hint: 1, 1

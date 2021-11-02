@@ -18,90 +18,82 @@
         orientation: "vertical"
         MDScreenTitle:
             text: "Расчёт компонентов"
-            #font_size: app.app_header_size
         MDSeparator:
             height: dp(3)
-        MDCard:
+        RippleCard:
             padding: 30, 10, 10, 10
+            ripple_behavior: True
+            on_release: root.manager.current = "LED_cal"
             MDIcon:
                 icon: "rectangle-outline"
                 pos_hint: {"center_x": 0.5, "center_y": .5}
-            MDFlatButton:
+                size_hint_x: None
+            MDLabel:
                 text: "Расчёт резисторов для светодиодов"
-                #font_size: app.app_button_size
                 text_size: self.size
-                halign: "center"
                 valign: "center"
-                pos_hint: {"center_x": 0.5, "center_y": .5}
-                on_release: root.manager.current = "LED_cal"
-            Widget:
-        MDCard:
+        MDSeparator:
+        RippleCard:
+            ripple_behavior: True
+            on_release: root.manager.current = "inductor_cal"
             padding: 30, 10, 10, 10
             MDIcon:
                 icon: "rectangle-outline"
                 pos_hint: {"center_x": 0.5, "center_y": .5}
-            MDFlatButton:
+                size_hint_x: None
+            MDLabel:
                 text: "Расчёт катушки индуктивности"
-                #font_size: app.app_button_size
                 text_size: self.size
-                halign: "center"
                 valign: "center"
-                pos_hint: {"center_x": 0.5, "center_y": .5}
-                on_release: root.manager.current = "inductor_cal"
-            Widget:
-        MDCard:
+        MDSeparator:
+        RippleCard:
+            ripple_behavior: True
+            on_release: root.manager.current = "par_resistor_cal"
             padding: 30, 10, 10, 10
             MDIcon:
                 icon: "rectangle-outline"
                 pos_hint: {"center_x": 0.5, "center_y": .5}
-            MDFlatButton:
+                size_hint_x: None
+            MDLabel:
                 text: "Параллельное соединение резисторов"
-                #font_size: app.app_button_size
                 text_size: self.size
-                halign: "center"
                 valign: "center"
-                pos_hint: {"left": 1, "center_y": .5}
-                on_release: root.manager.current = "par_resistor_cal"
-            Widget:
-        MDCard:
+        MDSeparator:
+        RippleCard:
+            ripple_behavior: True
+            on_release: root.manager.current = "ser_capacitor_cal"
             padding: 30, 10, 10, 10
             MDIcon:
                 icon: "rectangle-outline"
                 pos_hint: {"center_x": 0.5, "center_y": .5}
-            MDFlatButton:
+                size_hint_x: None
+            MDLabel:
                 text: "Последовательное соединение конденсаторов"
-                #font_size: app.app_button_size
                 text_size: self.size
-                halign: "center"
                 valign: "center"
-                pos_hint: {"center_x": 0.5, "center_y": .5}
-                on_release: root.manager.current = "ser_capacitor_cal"
-            Widget:
-        MDCard:
+        MDSeparator:
+        RippleCard:
+            ripple_behavior: True
+            on_release: root.manager.current = "divider_cal"
             padding: 30, 10, 10, 10
             MDIcon:
                 icon: "rectangle-outline"
                 pos_hint: {"center_x": 0.5, "center_y": .5}
-            MDFlatButton:
+                size_hint_x: None
+            MDLabel:
                 text: "Делитель напряжения"
-                #font_size: app.app_button_size
                 text_size: self.size
-                halign: "center"
                 valign: "center"
-                pos_hint: {"center_x": 0.5, "center_y": .5}
-                on_release: root.manager.current = "divider_cal"
-            Widget:
-        MDCard:
+        MDSeparator:
+        RippleCard:
+            ripple_behavior: True
+            on_release: root.manager.current = "lm317_cal"
             padding: 30, 10, 10, 10
             MDIcon:
                 icon: "rectangle-outline"
                 pos_hint: {"center_x": 0.5, "center_y": .5}
-            MDFlatButton:
+                size_hint_x: None
+            MDLabel:
                 text: "LM317/LM350/LM338 калькулятор"
-                #font_size: app.app_button_size
                 text_size: self.size
-                halign: "center"
                 valign: "center"
-                pos_hint: {"center_x": 0.5, "center_y": .5}
-                on_release: root.manager.current = "lm317_cal"
-            Widget:

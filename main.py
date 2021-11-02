@@ -1,6 +1,8 @@
 import os
 
-from kivy.properties import ObjectProperty
+from kivy.properties import ObjectProperty, StringProperty
+from kivymd.uix.boxlayout import MDBoxLayout
+from kivymd.uix.list import IRightBodyTouch, OneLineListItem
 
 import ResistorsMarking, CapacitorsMarking, ResistorLEDCalculateScreen, InductorCalculateScreen, \
     ParallelResistorCalculateScreen, SerialCapacitorCalculateScreen, VoltageDividerCalculateScreen, LM317Voltage, \
@@ -11,6 +13,16 @@ from kivy.uix.spinner import SpinnerOption
 from kivymd.app import MDApp
 from kivymd.uix.screen import MDScreen
 from kivy.core.window import Window
+
+
+class CenterList(OneLineListItem):
+    center_text = StringProperty()
+    pass
+
+
+class CenterItem(IRightBodyTouch, MDBoxLayout):
+    text = StringProperty()
+    pass
 
 
 class NominalsScreen(MDScreen):

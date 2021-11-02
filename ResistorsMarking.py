@@ -1,14 +1,17 @@
 from kivy import Config
 from kivy.app import App
+from kivy.metrics import dp
 from kivy.properties import DictProperty
 from kivy.uix.spinner import Spinner
 from kivy.uix.widget import Widget
+from kivymd.uix.menu import MDDropdownMenu
 from kivymd.uix.screen import MDScreen
 
 from StandardRows import StandardRows
 
 
 class ResistorsMarking(MDScreen):
+
     dynamic_vars = DictProperty({})
 
     nominal = {"black": 0, "brown": 1, "red": 2, "orange": 3, "yellow": 4, "green": 5,
@@ -37,6 +40,38 @@ class ResistorsMarking(MDScreen):
              "91": 866, "92": 887, "93": 909, "94": 931, "95": 953, "96": 976}
     eia96_multiplier = {"Z": 0.001, "Y": 0.01, "R": 0.01, "X": 0.1, "S": 0.1, "A": 1, "B": 10, "H": 10, "C": 100,
                         "D": 1000, "E": 10000, "F": 100000}
+
+    def build_menu(self):
+        menu_items = [{"center_text": "3",
+                       "viewclass": "CenterList",
+                       "on_release": lambda x="3": self.set_item(x),
+                       "height": dp(56),},
+                      {"center_text": "4",
+                       "viewclass": "CenterList",
+                       "on_release": lambda x="4": self.set_item(x),
+                       "height": dp(56),},
+                      {"center_text": "5",
+                       "viewclass": "CenterList",
+                       "on_release": lambda x="5": self.set_item(x),
+                       "height": dp(56),},
+                      {"center_text": "6",
+                       "viewclass": "CenterList",
+                       "on_release": lambda x="6": self.set_item(x),
+                       "height": dp(56),}, ]
+        self.menu = MDDropdownMenu(
+            caller=self.ids.resistor_marking_menu,
+            items=menu_items,
+            width_mult=4,
+        )
+
+    def set_item(self, text_item):
+        self.ids.resistor_marking_menu_name.text = text_item
+        self.menu.dismiss()
+        self.build_resistor(self.ids.resistor_marking_menu_name.text)
+
+    def build_me(self):
+        self.build_menu()
+        self.build_resistor(3)
 
     def select_color(self):
         pass

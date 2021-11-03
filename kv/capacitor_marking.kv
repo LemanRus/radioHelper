@@ -11,25 +11,17 @@
         BoxLayout:
             TextInput:
                 id: capacitor_input
-#                font_size: app.app_font_size
                 multiline: False
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate: root.calculate_capacitor(self.text)
-            Button:
-                text: "Рассчитать"
-                size_hint_x: 0.2
-#                font_size: app.app_button_size
-                text_size: self.size
-                halign: "center"
-                valign: "center"
+            RippleCard:
                 on_release: root.calculate_capacitor(capacitor_input.text)
+                MDLabelCenter:
+                    text: "Рассчитать"
+
         MDLabelCenter:
             id: capacity
-            text_size: self.size
-#            font_size: app.app_font_size
-            halign: "center"
-            valign: "center"
         MDLabelCenter:
             text: "Введите маркировку SMD конденсатора:"
 #            font_size: app.app_font_size

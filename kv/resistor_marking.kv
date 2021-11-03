@@ -34,14 +34,7 @@
                 MDLabelCenter:
                     id: resistor_marking_menu_name
                     text: "3"
-
-
-    #                text: '3'
-    ##                        font_size: app.app_button_size
-    #                values: '3', '4', '5', '6'
-    #                on_parent: root.build_resistor(self.text)
-    #                on_text: root.build_resistor(self.text)
-    #                option_cls: "MySpinnerOption"
+        MDSeparator:
         MDBoxLayout:
             canvas.before:
                 Rectangle:
@@ -57,20 +50,28 @@
                 size_hint_x: 3
                 pos_hint: {'center_x': 0.5, 'center_y': 0.5}
             MDLabel:
+        MDSeparator:
         RippleCard:
             on_release: root.calculate_resistor()
             MDLabelCenter:
                 text: "Рассчитать!"
+        MDSeparator:
         RippleCard:
             MDLabelCenter:
+                canvas.before:
+                    Color:
+                        rgba: (.5,.5,.5,.7)
+                    Line:
+                        width: 1.1
+                        rectangle: self.x, self.y, self.width, self.height
                 id: resistance
         MDSeparator:
-            height: dp(3)
+            height: dp(5)
         RippleCard:
             MDLabelCenter:
                 text: "Для SMD резистора впишите в поле ниже маркировку с резистора: "
                 text_size: self.size
-
+        MDSeparator:
         BoxLayout:
             TextInput:
                 id: smd_input
@@ -82,9 +83,15 @@
             RippleCard:
                 on_release: root.calculate_smd_resistor(smd_input.text)
                 MDLabelCenter:
-                    text: "Рассчитать"
+                    text: "Рассчитать!"
                     text_size: self.size
-
+        MDSeparator:
         RippleCard:
             MDLabelCenter:
+                canvas.before:
+                    Color:
+                        rgba: (.5,.5,.5,.7)
+                    Line:
+                        width: 1.1
+                        rectangle: self.x, self.y, self.width, self.height
                 id: smd_resistance

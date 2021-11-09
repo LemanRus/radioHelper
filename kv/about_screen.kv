@@ -8,69 +8,63 @@
         orientation: "vertical"
         MDScreenTitle:
             text: "О программе"
-            #font_size: app.app_header_size
         MDSeparator:
             height: dp(3)
-        MDLabel:
-            text: "Помощник радиолюбителя\n\nКарманный помощник, готовый выручить в любую минуту"
-            text_size: self.size
-            halign: "center"
-            valign: "center"
-            #font_size: app.app_font_size + 2
-        MDLabel:
-            text: "by Vlad aka LemanRuss"
-            text_size: self.size
-            halign: "center"
-            valign: "center"
-            #font_size: app.app_font_size - 10
-        MDLabel:
-            text: "Создано автором бескорыстно и с любовью\n100% Python\nАвтор выражает благодарность Гвидо ван Россуму\nи создателям замечательного фреймворка kivy"
-            text_size: self.size
-            halign: "center"
-            valign: "center"
-            #font_size: app.app_font_size - 3
-        MDLabel:
-            text: "На вкусняшки котику автора:"
-            text_size: self.size
-            halign: "center"
-            valign: "center"
-#            font_size: app.app_font_size
-        MDBoxLayout:
+        MDCard:
+            orientation: "vertical"
+            MDLabel:
+                text: "Помощник радиолюбителя\n\nКарманный помощник, готовый выручить в любую минуту"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+            MDLabel:
+                text: "by Vlad aka LemanRuss"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+        MDCard:
+            MDLabel:
+                text: "Создано автором бескорыстно и с любовью\n100% Python\nАвтор выражает благодарность Гвидо ван Россуму\nи создателям замечательного фреймворка kivy"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+        MDCard:
+            MDLabel:
+                text: "На вкусняшки котику автора:"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+        MDCard:
             padding: 20, 0, 20, 0
-            Image:
+            FitImage:
                 pos_hint: {"center_x": 0.5, "center_y": .5}
                 source: "img/btc.png"
-                size_hint: 0.4, 1
                 allow_stretch: False
+                size_hint: None, None
             MDLabel:
                 id: btc_address
                 text: "Любая сумма в биткоинах\nbc1qz070d7tgupm8sr0paan5v6dnaqdj8lmjazamql"
                 text_size: self.size
                 halign: "center"
                 valign: "center"
-#                font_size: app.app_font_size
             MDIconButton:
                 icon: "img/copy.png"
                 pos_hint: {"center_x": 0.5, "center_y": .5}
                 user_font_size: "24sp"
                 on_press: Clipboard.copy("bc1qz070d7tgupm8sr0paan5v6dnaqdj8lmjazamql")
                 on_release: toast("Текст скопирован!")
-        MDBoxLayout:
+        MDCard:
             padding: 20, 0, 20, 0
-            BoxLayout:
-                size_hint: 0.4, 1
-                padding: 0, 3, 0, 3
-                Image:
-                    pos_hint: {"center_x": 0.5, "center_y": .5}
-                    source: "img/card.png"
-
-                    allow_stretch: False
+            FitImage:
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+                source: "img/card.png"
+                allow_stretch: False
+                size_hint: None, None
             MDLabel:
                 text: "Или любая сумма на карту"
                 text_size: self.size
                 halign: "center"
                 valign: "center"
-#                font_size: app.app_font_size
             MDIconButton:
                 icon: "img/outer_link.png"
                 pos_hint: {"center_x": 0.5, "center_y": .5}

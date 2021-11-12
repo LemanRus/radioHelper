@@ -1,10 +1,81 @@
 <Handbook>:
+    ScreenManager:
+        id: handbook_sm
+        on_parent: app.add_me_to_sm(self, list(root.ids.keys())[0])
+        HandbookScreen:
+        Pinout:
+
+<HandbookScreen>:
+    name: "handbook"
     MDBoxLayout:
         orientation: "vertical"
         MDScreenTitle:
             text: "Справочники"
         MDSeparator:
             height: dp(3)
-        MDLabel:
-            text: "test"
-            halign: "center"
+        RippleCard30:
+            on_release: root.manager.current  = "pinout"
+            MDIcon:
+                icon: "rectangle-outline"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+                size_hint_x: None
+            MDLabel:
+                text: "Распиновки"
+                text_size: self.size
+                valign: "center"
+        MDSeparator:
+        RippleCard30:
+#            on_release: root.manager.current = "inductor_cal"
+            MDIcon:
+                icon: "rectangle-outline"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+                size_hint_x: None
+            MDLabel:
+                text: "Test"
+                text_size: self.size
+                valign: "center"
+        MDSeparator:
+        RippleCard30:
+#            on_release: root.manager.current = "par_resistor_cal"
+            MDIcon:
+                icon: "rectangle-outline"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+                size_hint_x: None
+            MDLabel:
+                text: "Test"
+                text_size: self.size
+                valign: "center"
+        MDSeparator:
+        RippleCard30:
+#            on_release: root.manager.current = "ser_capacitor_cal"
+            MDIcon:
+                icon: "rectangle-outline"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+                size_hint_x: None
+            MDLabel:
+                text: "Test"
+                text_size: self.size
+                valign: "center"
+        MDSeparator:
+        RippleCard30:
+#            on_release: root.manager.current = "divider_cal"
+            MDIcon:
+                icon: "rectangle-outline"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+                size_hint_x: None
+            MDLabel:
+                text: "Test"
+                text_size: self.size
+                valign: "center"
+        MDSeparator:
+        RippleCard30:
+#            on_release: root.manager.current = "lm317_cal"
+            MDIcon:
+                icon: "rectangle-outline"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+                size_hint_x: None
+            MDLabel:
+                text: "Test"
+                text_size: self.size
+                valign: "center"
+        MDSeparator:

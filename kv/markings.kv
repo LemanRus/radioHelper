@@ -20,7 +20,7 @@
         BoxLayout:
             GridLayout:
                 cols: 1
-                RippleCard:
+                RippleCard30:
                     on_release: root.manager.current = "resistor"
                     MDIcon:
                         icon: "rectangle-outline"
@@ -31,7 +31,7 @@
                         text_size: self.size
                         valign: "center"
                 MDSeparator:
-                RippleCard:
+                RippleCard30:
                     on_release: root.manager.current = "capacitor"
                     MDIcon:
                         icon: "arrow-split-vertical"
@@ -46,3 +46,4 @@
                 Widget:
                 Widget:
                 Widget:
+                MDSeparator:

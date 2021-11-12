@@ -49,6 +49,14 @@ class Handbook(MDScreen):
     pass
 
 
+class HandbookScreen(MDScreen):
+    pass
+
+
+class Pinout(MDScreen):
+    pass
+
+
 class AboutScreen(MDScreen):
     pass
 
@@ -86,6 +94,8 @@ class RadioHelperMD(MDApp):
                         value.current = "lm317_cal"
                 if key == "markings_sm":
                     value.current = "nominals"
+                if key == "handbook_sm":
+                    value.current = "handbook"
             return True
 
 RadioHelperMD().run()

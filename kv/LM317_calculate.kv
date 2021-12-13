@@ -16,13 +16,6 @@
             halign: "center"
             valign: "center"
             on_release: root.manager.current = "LM317_current"
-        Button:
-            text: "Назад"
-            # font_size: app.app_button_size
-            text_size: self.size
-            halign: "center"
-            valign: "center"
-            on_release: root.manager.current = "calculations"
 
 <LM317Voltage>:
     name: "LM317_voltage"
@@ -201,13 +194,6 @@
                 # font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-        Button:
-            text: "Назад"
-            # font_size: app.app_button_size
-            text_size: self.size
-            halign: "center"
-            valign: "center"
-            on_release: root.manager.current = "lm317_cal"
 
 <LM317Current>:
     name: "LM317_current"

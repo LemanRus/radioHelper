@@ -16,6 +16,7 @@
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate: root.calculate_capacitor(self.text)
             RippleCard:
+                size_hint_x: 0.3
                 on_release: root.calculate_capacitor(capacitor_input.text)
                 MDLabelCenter:
                     text: "Рассчитать"
@@ -36,14 +37,11 @@
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate: root.calculate_smd_capacitor(self.text)
-            Button:
-                text: "Рассчитать"
-#                font_size: app.app_button_size
-                size_hint_x: 0.2
-                text_size: self.size
-                halign: "center"
-                valign: "center"
+            RippleCard:
+                size_hint_x: 0.3
                 on_release: root.calculate_smd_capacitor(smd_capacitor_input.text)
+                MDLabelCenter:
+                    text: "Рассчитать"
         MDLabelCenter:
             id: smd_capacity
             text_size: self.size

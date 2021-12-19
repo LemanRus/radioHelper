@@ -75,16 +75,17 @@
                         # font_size: app.app_# font_size
                         halign: "center"
                         valign: "center"
-            Spinner:
+            RippleCard:
                 size_hint_x: 0.4
-                text: "Выберите"
-                # font_size: app.app_button_size
-                text_size: self.size
-                halign: "center"
-                valign: "center"
-                values: [*root.diodes]
-                on_text: led_vol_input.text = str(root.diodes[self.text][0])
-                on_text: led_cur_input.text = str(root.diodes[self.text][1])
+                on_parent: root.build_me()
+                on_release: root.menu.open()
+                id: resistor_marking_menu
+                MDLabelCenter:
+                    id: resistor_marking_menu_name
+                    text: "Выберите"
+                    on_text: led_vol_input.text = str(root.diodes[self.text][0])
+                    on_text: led_cur_input.text = str(root.diodes[self.text][1])
+
         BoxLayout:
             MDLabel:
                 text: "Количество светодиодов:"
@@ -110,13 +111,10 @@
                 valign: "center"
             Widget:
                 size_hint_x: 0.52
-        Button:
-            text: "Рассчитать!"
-            text_size: self.size
-            halign: "center"
-            valign: "center"
-            # font_size: app.app_button_size
+        RippleCard:
             on_release: root.led_calculate(led_vol.text, led_vol_input.text, led_cur_input.text, led_quantity.text)
+            MDLabelCenter:
+                text: "Рассчитать!"
         MDLabel:
             canvas.before:
                 Color:
@@ -125,65 +123,58 @@
                     size: self.size
                     pos: self.pos
             size_hint_y: 0.03
-        MDLabel:
+        MDLabelCenter:
             text: "Результат:"
-            text_size: self.size
-            # font_size: app.app_# font_size
-            halign: "center"
-            valign: "center"
         BoxLayout:
-            MDLabel:
+            MDLabelCenter:
                 text: "Расчётное сопротивление:"
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: led_result
+            MDCard10:
                 size_hint_x: 0.3
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
+                MDLabelCenter:
+                    canvas.before:
+                        Color:
+                            rgba: (.5,.5,.5,.7)
+                        Line:
+                            width: 1.1
+                            rectangle: self.x, self.y, self.width, self.height
+                    id: led_result
         BoxLayout:
-            MDLabel:
+            MDLabelCenter:
                 text: "Стандартное значение:"
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: led_e24
+            MDCard10:
                 size_hint_x: 0.3
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
+                MDLabelCenter:
+                    canvas.before:
+                        Color:
+                            rgba: (.5,.5,.5,.7)
+                        Line:
+                            width: 1.1
+                            rectangle: self.x, self.y, self.width, self.height
+                    id: led_e24
         BoxLayout:
-            MDLabel:
+            MDLabelCenter:
                 text: "Рассеиваемая на резисторе мощность:"
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: led_res_power
+            MDCard10:
                 size_hint_x: 0.3
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
+                MDLabelCenter:
+                    canvas.before:
+                        Color:
+                            rgba: (.5,.5,.5,.7)
+                        Line:
+                            width: 1.1
+                            rectangle: self.x, self.y, self.width, self.height
+                    id: led_res_power
+
         BoxLayout:
-            MDLabel:
+            MDLabelCenter:
                 text: "Потребляемый ток:"
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: led_cur
+            MDCard10:
                 size_hint_x: 0.3
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
+                MDLabelCenter:
+                    canvas.before:
+                        Color:
+                            rgba: (.5,.5,.5,.7)
+                        Line:
+                            width: 1.1
+                            rectangle: self.x, self.y, self.width, self.height
+                    id: led_cur

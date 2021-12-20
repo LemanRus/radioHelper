@@ -1,12 +1,12 @@
 import os
-
+# todo: MDScreenTitle для окон
 from kivy.properties import ObjectProperty, StringProperty
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.list import IRightBodyTouch, OneLineListItem
 
-import ResistorsMarking, CapacitorsMarking, ResistorLEDCalculateScreen, InductorCalculateScreen, \
+import ResistorsMarking, CapacitorsMarking, ResistorLEDCalculateScreen, InductorCalculateTurns, \
     ParallelResistorCalculateScreen, SerialCapacitorCalculateScreen, VoltageDividerCalculateScreen, LM317Voltage, \
-    LM317Current
+    LM317Current, InductorCalculateHenrys
 
 from kivy.lang import Builder
 from kivy.uix.spinner import SpinnerOption
@@ -38,6 +38,10 @@ class Calculations(MDScreen):
 
 
 class LM317CalculateScreen(MDScreen):
+    pass
+
+
+class InductorCalculateScreen(MDScreen):
     pass
 
 
@@ -88,10 +92,12 @@ class RadioHelperMD(MDApp):
         if key == 27:
             for key, value in self.screen_manager_for_back.items():
                 if key == "calculations_sm":
-                    if value.current not in ["LM317_voltage", "LM317_current"]:
-                        value.current = "calculations"
-                    else:
+                    if value.current in ["LM317_voltage", "LM317_current"]:
                         value.current = "lm317_cal"
+                    elif value.current in ["inductor_turns", "inductor_henrys"]:
+                        value.current = "inductor_cal"
+                    else:
+                        value.current = "calculations"
                 if key == "markings_sm":
                     value.current = "nominals"
                 if key == "handbook_sm":

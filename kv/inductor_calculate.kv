@@ -2,19 +2,25 @@
     name: "inductor_cal"
     BoxLayout:
         orientation: "vertical"
-        MDLabel:
+        RippleCard:
+            on_release: root.manager.current = "inductor_turns"
+            MDLabelCenter:
+                text: "Расчёт длины намотки и числа витков"
+        RippleCard:
+            on_release: root.manager.current = "inductor_henrys"
+            MDLabelCenter:
+                text: "Расчёт индуктивности"
+
+<InductorCalculateTurns>:
+    name: "inductor_turns"
+    BoxLayout:
+        orientation: "vertical"
+        MDScreenTitle:
             text: "Расчёт длины намотки и числа витков"
-            text_size: self.size
-            # font_size: app.app_# font_size
-            halign: "center"
-            valign: "center"
         BoxLayout:
-            MDLabel:
-                text: "Индуктивность:"
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
+            MDCard10:
+                MDLabelCenter:
+                    text: "Индуктивность:"
             TextInput:
                 id: henrys
                 size_hint_x: 0.2
@@ -23,20 +29,14 @@
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate:
-            MDLabel:
+            MDCard10:
                 size_hint_x: 0.1
-                text: "мкГн"
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
+                MDLabelCenter:
+                    text: "мкГн"
         BoxLayout:
-            MDLabel:
-                text: "Диаметр каркаса:"
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
+            MDCard10:
+                MDLabelCenter:
+                    text: "Диаметр каркаса:"
             TextInput:
                 id: inductor_diameter
                 size_hint_x: 0.2
@@ -45,20 +45,14 @@
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate:
-            MDLabel:
+            MDCard10:
                 size_hint_x: 0.1
-                text: "мм"
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
+                MDLabelCenter:
+                    text: "мм"
         BoxLayout:
-            MDLabel:
-                text: "Диаметр провода:"
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
+            MDCard10:
+                MDLabelCenter:
+                    text: "Диаметр провода:"
             TextInput:
                 id: inductor_oneturn
                 size_hint_x: 0.2
@@ -67,121 +61,69 @@
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate:
-            MDLabel:
+            MDCard10:
                 size_hint_x: 0.1
-                text: "мм"
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
-        Button:
-            text: "Рассчитать!"
-            # font_size: app.app_button_size
-            text_size: self.size
-            halign: "center"
-            valign: "center"
+                MDLabelCenter:
+                    text: "мм"
+        MDSeparator:
+        RippleCard:
             on_release: root.inductor_calculate_turns(henrys.text, inductor_diameter.text, inductor_oneturn.text)
-        MDLabel:
-            canvas.before:
-                Color:
-                    rgba: 1,1,1,1
-                Rectangle:
-                    size: self.size
-                    pos: self.pos
-            size_hint_y: 0.05
+            MDLabelCenter:
+                text: "Рассчитать!"
+        MDSeparator:
         BoxLayout:
             size_hint_y: 2
-            MDLabel:
-                text: "Число витков:"
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
+            MDCard10:
+                MDLabelCenter:
+                    text: "Число витков:"
             BoxLayout:
                 orientation: "vertical"
-                MDLabel:
-                    text: "Расчётное значение"
-                    text_size: self.size
-                    # font_size: app.app_# font_size
-                    halign: "center"
-                    valign: "center"
-                MDLabel:
-                    text: "Целое значение"
-                    text_size: self.size
-                    # font_size: app.app_# font_size
-                    halign: "center"
-                    valign: "center"
+                MDCard10:
+                    MDLabelCenter:
+                        text: "Расчётное значение"
+                MDCard10:
+                    MDLabelCenter:
+                        text: "Целое значение"
             BoxLayout:
                 orientation: "vertical"
-                MDLabel:
-                    id: inductor_turns
-                    text_size: self.size
-                    # font_size: app.app_# font_size
-                    halign: "center"
-                    valign: "center"
-                MDLabel:
-                    id: inductor_turns_int
-                    text_size: self.size
-                    # font_size: app.app_# font_size
-                    halign: "center"
-                    valign: "center"
+                MDCard10:
+                    MDBorderedLabel:
+                        id: inductor_turns
+                MDCard10:
+                    MDBorderedLabel:
+                        id: inductor_turns_int
         BoxLayout:
             size_hint_y: 2
-            MDLabel:
-                text: "Длина намотки:"
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
+            MDCard10:
+                MDLabelCenter:
+                    text: "Длина намотки:"
             BoxLayout:
                 orientation: "vertical"
-                MDLabel:
-                    text: "Расчётное значение"
-                    text_size: self.size
-                    # font_size: app.app_# font_size
-                    halign: "center"
-                    valign: "center"
-                MDLabel:
-                    text: "Целое значение"
-                    text_size: self.size
-                    # font_size: app.app_# font_size
-                    halign: "center"
-                    valign: "center"
+                MDCard10
+                    MDLabelCenter:
+                        text: "Расчётное значение"
+                MDCard10:
+                    MDLabelCenter:
+                        text: "Целое значение"
             BoxLayout:
                 orientation: "vertical"
-                MDLabel:
-                    id: inductor_length
-                    text_size: self.size
-                    # font_size: app.app_# font_size
-                    halign: "center"
-                    valign: "center"
-                MDLabel:
-                    id: inductor_length_int
-                    text_size: self.size
-                    # font_size: app.app_# font_size
-                    halign: "center"
-                    valign: "center"
-        MDLabel:
-            canvas.before:
-                Color:
-                    rgba: 1,1,1,1
-                Rectangle:
-                    size: self.size
-                    pos: self.pos
-            size_hint_y: 0.05
-        MDLabel:
+                MDCard10:
+                    MDBorderedLabel:
+                        id: inductor_length
+                MDCard10:
+                    MDBorderedLabel:
+                        id: inductor_length_int
+
+<InductorCalculateHenrys>:
+    name: "inductor_henrys"
+    BoxLayout:
+        orientation: "vertical"
+        MDScreenTitle:
             text: "Расчёт индуктивности:"
-            text_size: self.size
-            # font_size: app.app_# font_size
-            halign: "center"
-            valign: "center"
         BoxLayout:
-            MDLabel:
-                text: "Число витков:"
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
+            MDCard10:
+                MDLabelCenter:
+                    text: "Число витков:"
             TextInput:
                 id: inductor_turns_input
                 size_hint_x: 0.2
@@ -190,20 +132,14 @@
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate:
-            MDLabel:
-                text: 'шт'
+            MDCard10:
                 size_hint_x: 0.1
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
+                MDLabelCenter:
+                    text: 'шт'
         BoxLayout:
-            MDLabel:
-                text: "Диаметр каркаса:"
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
+            MDCard10:
+                MDLabelCenter:
+                    text: "Диаметр каркаса:"
             TextInput:
                 id: inductor_diameter_input
                 size_hint_x: 0.2
@@ -212,20 +148,14 @@
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate:
-            MDLabel:
-                text: 'мм'
+            MDCard10:
                 size_hint_x: 0.1
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
+                MDLabelCenter:
+                    text: 'мм'
         BoxLayout:
-            MDLabel:
-                text: "Длина намотки:"
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
+            MDCard10:
+                MDLabelCenter:
+                    text: "Длина намотки:"
             TextInput:
                 id: inductor_length_input
                 size_hint_x: 0.2
@@ -233,39 +163,20 @@
                 multiline: False
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
-                on_text_validate:
-            MDLabel:
-                text: 'мм'
+            MDCard10:
                 size_hint_x: 0.1
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
-        Button:
-            text: "Рассчитать!"
-            # font_size: app.app_button_size
-            text_size: self.size
-            halign: "center"
-            valign: "center"
+                MDLabelCenter:
+                    text: 'мм'
+        MDSeparator:
+        RippleCard:
             on_release: root.inductor_calculate_henrys(inductor_turns_input.text, inductor_diameter_input.text, inductor_length_input.text)
-        MDLabel:
-            canvas.before:
-                Color:
-                    rgba: 1,1,1,1
-                Rectangle:
-                    size: self.size
-                    pos: self.pos
-            size_hint_y: 0.05
+            MDLabelCenter:
+                text: "Рассчитать!"
+        MDSeparator:
         BoxLayout:
-            MDLabel:
-                text: "Индуктивность:"
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: induction
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
+            MDCard10:
+                MDLabelCenter:
+                    text: "Индуктивность:"
+            MDCard10:
+                MDBorderedLabel:
+                    id: induction

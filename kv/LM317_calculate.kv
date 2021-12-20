@@ -2,32 +2,23 @@
     name: "lm317_cal"
     BoxLayout:
         orientation: "vertical"
-        Button:
-            text: "Стабилизатор напряжения"
-            # font_size: app.app_button_size
-            text_size: self.size
-            halign: "center"
-            valign: "center"
+        RippleCard:
             on_release: root.manager.current = "LM317_voltage"
-        Button:
-            text: "Стабилизатор тока"
-            # font_size: app.app_button_size
-            text_size: self.size
-            halign: "center"
-            valign: "center"
+            MDLabelCenter:
+                text: "Стабилизатор напряжения"
+        RippleCard:
             on_release: root.manager.current = "LM317_current"
+            MDLabelCenter:
+                text: "Стабилизатор тока"
 
 <LM317Voltage>:
     name: "LM317_voltage"
     BoxLayout:
         orientation: "vertical"
         BoxLayout:
-            MDLabel:
-                text: "Выходное напряжение:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+            MDCard10:
+                MDLabelCenter:
+                    text: "Выходное напряжение:"
             TextInput:
                 id: lm317_vout_input
                 size_hint_x: 0.1
@@ -36,20 +27,14 @@
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate:
-            MDLabel:
+            MDCard10:
                 size_hint_x: 0.1
-                text: "В"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+                MDLabelCenter:
+                    text: "В"
         BoxLayout:
-            MDLabel:
-                text: "Сопротивление R1:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+            MDCard10:
+                MDLabelCenter:
+                    text: "Сопротивление R1:"
             TextInput:
                 id: lm317_r1_input
                 size_hint_x: 0.1
@@ -57,21 +42,14 @@
                 multiline: False
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
-                on_text_validate:
-            MDLabel:
+            MDCard10:
                 size_hint_x: 0.1
-                text: "Ом"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+                MDLabelCenter:
+                    text: "Ом"
         BoxLayout:
-            MDLabel:
-                text: "Ток нагрузки:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+            MDCard10:
+                MDLabel:
+                    text: "Ток нагрузки:"
             TextInput:
                 id: lm317_iout_input
                 size_hint_x: 0.1
@@ -79,21 +57,14 @@
                 multiline: False
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
-                on_text_validate:
-            MDLabel:
+            MDCard10:
                 size_hint_x: 0.1
-                text: "А"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+                MDLabelCenter:
+                    text: "А"
         BoxLayout:
-            MDLabel:
-                text: "Входное напряжение:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+            MDCard10:
+                MDLabel:
+                    text: "Входное напряжение:"
             TextInput:
                 id: lm317_vin_input
                 size_hint_x: 0.1
@@ -101,111 +72,65 @@
                 multiline: False
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
-                on_text_validate:
-            MDLabel:
+            MDCard10:
                 size_hint_x: 0.1
-                text: "В"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-        Button:
-            text: "Рассчитать!"
-            # font_size: app.app_button_size
-            text_size: self.size
-            halign: "center"
-            valign: "center"
+                MDLabelCenter:
+                    text: "В"
+        MDSeparator:
+        RippleCard:
             on_release: root.calculate_lm317_voltage(lm317_vout_input.text, lm317_r1_input.text, lm317_iout_input.text, lm317_vin_input.text)
-        MDLabel:
-            canvas.before:
-                Color:
-                    rgba: 1,1,1,1
-                Rectangle:
-                    size: self.size
-                    pos: self.pos
-            size_hint_y: 0.05
+            MDLabelCenter:
+                text: "Рассчитать!"
+        MDSeparator:
         BoxLayout:
-            MDLabel:
-                text: "Сопротивление R2:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: lm317_r2_output
+            MDCard10:
+                MDLabelCenter:
+                    text: "Сопротивление R2:"
+            MDCard10:
                 size_hint_x: 0.3
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+                MDBorderedLabel:
+                    id: lm317_r2_output
         BoxLayout:
-            MDLabel:
-                text: "Стандартное сопротивление R2:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: lm317_r2_corrected_output
+            MDCard10:
+                MDLabelCenter:
+                    text: "Стандартное сопротивление R2:"
+            MDCard10:
                 size_hint_x: 0.3
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+                MDBorderedLabel:
+                    id: lm317_r2_corrected_output
         BoxLayout:
-            MDLabel:
-                text: "Выходное напряжение:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: lm317_vout_output
+            MDCard10:
+                MDLabel:
+                    text: "Выходное напряжение:"
+            MDCard10:
                 size_hint_x: 0.3
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+                MDBorderedLabel:
+                    id: lm317_vout_output
         BoxLayout:
-            MDLabel:
-                text: "Рекомендуемый тип стабилизатора:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: lm317_recommend_output
+            MDCard10:
+                MDLabel:
+                    text: "Рекомендуемый тип стабилизатора:"
+            MDCard10:
                 size_hint_x: 0.3
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+                MDBorderedLabel:
+                    id: lm317_recommend_output
         BoxLayout:
-            MDLabel:
-                text: "Рассеиваемая мощность:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: lm317_power_output
+            MDCard10:
+                MDLabel:
+                    text: "Рассеиваемая мощность:"
+            MDCard10:
                 size_hint_x: 0.3
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+                MDBorderedLabel:
+                    id: lm317_power_output
 
 <LM317Current>:
     name: "LM317_current"
     BoxLayout:
         orientation: "vertical"
         BoxLayout:
-            MDLabel:
-                text: "Выходной ток:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+            MDCard10:
+                MDLabelCenter:
+                    text: "Выходной ток:"
             TextInput:
                 id: lm317_iout_input_cur
                 size_hint_x: 0.1
@@ -213,21 +138,14 @@
                 multiline: False
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
-                on_text_validate:
-            MDLabel:
+            MDCard10:
                 size_hint_x: 0.1
-                text: "А"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+                MDLabelCenter:
+                    text: "А"
         BoxLayout:
-            MDLabel:
-                text: "Падение напряжения на нагрузке:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+            MDCard10:
+                MDLabelCenter:
+                    text: "Падение напряжения на нагрузке:"
             TextInput:
                 id: lm317_vout_input_cur
                 size_hint_x: 0.1
@@ -235,124 +153,69 @@
                 multiline: False
                 halign: "center"
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
-                on_text_validate:
-            MDLabel:
+            MDCard10:
                 size_hint_x: 0.1
-                text: "В"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-        Button:
-            text: "Рассчитать!"
-            # font_size: app.app_button_size
-            text_size: self.size
-            halign: "center"
-            valign: "center"
+                MDLabelCenter:
+                    text: "В"
+        MDSeparator:
+        RippleCard:
             on_release: root.calculate_lm317_current(lm317_iout_input_cur.text, lm317_vout_input_cur.text)
-        MDLabel:
-            canvas.before:
-                Color:
-                    rgba: 1,1,1,1
-                Rectangle:
-                    size: self.size
-                    pos: self.pos
-            size_hint_y: 0.05
+            MDLabelCenter:
+                text: "Рассчитать!"
+        MDSeparator:
         BoxLayout:
-            MDLabel:
-                text: "Сопротивление R1:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: lm317_r1_output_cur
+            MDCard10:
+                MDLabelCenter:
+                    text: "Сопротивление R1:"
+            MDCard10:
                 size_hint_x: 0.3
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+                MDBorderedLabel:
+                    id: lm317_r1_output_cur
         BoxLayout:
-            MDLabel:
-                text: "Сопротивление R1 из стандартного ряда:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: lm317_r1_corrected_output_cur
+            MDCard10:
+                MDLabelCenter:
+                    text: "Сопротивление R1 из стандартного ряда:"
+            MDCard10:
                 size_hint_x: 0.3
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+                MDBorderedLabel:
+                    id: lm317_r1_corrected_output_cur
         BoxLayout:
-            MDLabel:
-                text: "Мощность:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: lm317_r1_power_output_cur
+            MDCard10:
+                MDLabelCenter:
+                    text: "Мощность:"
+            MDCard10:
                 size_hint_x: 0.3
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+                MDBorderedLabel:
+                    id: lm317_r1_power_output_cur
         BoxLayout:
-            MDLabel:
-                text: "Мощность с резистором из стандартного ряда:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: lm317_r1_power_corrected_output_cur
+            MDCard10:
+                MDLabelCenter:
+                    text: "Мощность с резистором из стандартного ряда:"
+            MDCard10:
                 size_hint_x: 0.3
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+                MDBorderedLabel:
+                    id: lm317_r1_power_corrected_output_cur
         BoxLayout:
-            MDLabel:
-                text: "Выходной ток с резистором из стандартного ряда:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: lm317_iout_corrected_output_cur
+            MDCard10:
+                MDLabelCenter:
+                    text: "Выходной ток с резистором из стандартного ряда:"
+            MDCard10:
                 size_hint_x: 0.3
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+                MDBorderedLabel:
+                    id: lm317_iout_corrected_output_cur
         BoxLayout:
-            MDLabel:
-                text: "Рекомендуемый тип стабилизатора:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: lm317_recommend_output_cur
+            MDCard10:
+                MDLabelCenter:
+                    text: "Рекомендуемый тип стабилизатора:"
+            MDCard10:
                 size_hint_x: 0.3
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+                MDBorderedLabel:
+                    id: lm317_recommend_output_cur
         BoxLayout:
-            MDLabel:
-                text: "Входное напряжение, не менее:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: lm317_vin_output_cur
+            MDCard10:
+                MDLabelCenter:
+                    text: "Входное напряжение, не менее:"
+            MDCard10:
                 size_hint_x: 0.3
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+                MDBorderedLabel:
+                    id: lm317_vin_output_cur

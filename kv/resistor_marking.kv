@@ -21,12 +21,9 @@
     MDBoxLayout:
         orientation: "vertical"
         MDBoxLayout:
-            RippleCard:
+            MDCard10:
                 MDLabelCenter:
                     text: "Для резисторов сквозного монтажа выберите количество полос:"
-
-    #                        font_size: app.app_font_size
-    #                        size_hint_x: 2
             RippleCard:
                 on_parent: root.build_me()
                 on_release: root.menu.open()
@@ -34,6 +31,11 @@
                 MDLabelCenter:
                     id: resistor_marking_menu_name
                     text: "3"
+                BoxLayout:
+                    size_hint_x: 0.2
+                    MDIcon:
+                        icon: "chevron-down"
+                        pos_hint: {"center_x": .5, "center_y": .5}
         MDSeparator:
         MDBoxLayout:
             canvas.before:
@@ -57,17 +59,11 @@
                 text: "Рассчитать!"
         MDSeparator:
         MDCard10:
-            MDLabelCenter:
-                canvas.before:
-                    Color:
-                        rgba: (.5,.5,.5,.7)
-                    Line:
-                        width: 1.1
-                        rectangle: self.x, self.y, self.width, self.height
+            MDBorderedLabel:
                 id: resistance
         MDSeparator:
             height: dp(5)
-        RippleCard:
+        MDCard10:
             MDLabelCenter:
                 text: "Для SMD резистора впишите в поле ниже маркировку с резистора: "
                 text_size: self.size
@@ -81,17 +77,12 @@
                 padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                 on_text_validate: root.calculate_smd_resistor(self.text)
             RippleCard:
+                size_hint_x: 0.5
                 on_release: root.calculate_smd_resistor(smd_input.text)
                 MDLabelCenter:
                     text: "Рассчитать!"
                     text_size: self.size
         MDSeparator:
         MDCard10:
-            MDLabelCenter:
-                canvas.before:
-                    Color:
-                        rgba: (.5,.5,.5,.7)
-                    Line:
-                        width: 1.1
-                        rectangle: self.x, self.y, self.width, self.height
+            MDBorderedLabel:
                 id: smd_resistance

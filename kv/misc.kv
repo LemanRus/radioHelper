@@ -3,6 +3,17 @@
     halign: "center"
     valign: "center"
 
+<MDBorderedLabel@MDLabel>:
+    canvas.before:
+        Color:
+            rgba: (.5,.5,.5,.7)
+        Line:
+            width: 1.1
+            rectangle: self.x, self.y, self.width, self.height
+    text_size: self.size
+    halign: "center"
+    valign: "center"
+
 <MDScreenTitle@MDLabel>:
     adaptive_height: True
     font_style: "H5"

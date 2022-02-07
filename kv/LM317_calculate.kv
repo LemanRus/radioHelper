@@ -173,12 +173,7 @@
                 # font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
-        Button:
-            text: "Рассчитать!"
-            # font_size: app.app_button_size
-            text_size: self.size
-            halign: "center"
-            valign: "center"
+        CalculateButton:
             on_release: root.calculate_lm317_current(lm317_iout_input_cur.text, lm317_vout_input_cur.text)
         MDLabel:
             canvas.before:

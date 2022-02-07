@@ -80,87 +80,50 @@
                 size_hint_x: 0.1
                 MDLabelCenter:
                     text: "В"
+        MDSeparator:
         CalculateButton:
             on_release: root.calculate_lm317_voltage(lm317_vout_input.text, lm317_r1_input.text, lm317_iout_input.text, lm317_vin_input.text)
-
-        MDLabel:
-            canvas.before:
-                Color:
-                    rgba: 1,1,1,1
-                Rectangle:
-                    size: self.size
-                    pos: self.pos
-            size_hint_y: 0.05
+        MDSeparator:
         BoxLayout:
-            MDLabel:
-                text: "Сопротивление R2:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: lm317_r2_output
+            MDCard10:
+                MDLabelCenter:
+                    text: "Сопротивление R2:"
+            MDCard10:
                 size_hint_x: 0.3
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+                MDBorderedLabel:
+                    id: lm317_r2_output
         BoxLayout:
-            MDLabel:
-                text: "Стандартное сопротивление R2:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: lm317_r2_corrected_output
+            MDCard10:
+                MDLabelCenter:
+                    text: "Стандартное сопротивление R2:"
+            MDCard10:
                 size_hint_x: 0.3
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+                MDBorderedLabel:
+                    id: lm317_r2_corrected_output
         BoxLayout:
-            MDLabel:
-                text: "Выходное напряжение:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: lm317_vout_output
+            MDCard10:
+                MDLabelCenter:
+                    text: "Выходное напряжение:"
+            MDCard10:
                 size_hint_x: 0.3
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+                MDBorderedLabel:
+                    id: lm317_vout_output
         BoxLayout:
-            MDLabel:
-                text: "Рекомендуемый тип стабилизатора:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: lm317_recommend_output
+            MDCard10:
+                MDLabelCenter:
+                    text: "Рекомендуемый тип стабилизатора:"
+            MDCard10:
                 size_hint_x: 0.3
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+                MDBorderedLabel:
+                    id: lm317_recommend_output
         BoxLayout:
-            MDLabel:
-                text: "Рассеиваемая мощность:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: lm317_power_output
+            MDCard10:
+                MDLabelCenter:
+                    text: "Рассеиваемая мощность:"
+            MDCard10:
                 size_hint_x: 0.3
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+                MDBorderedLabel:
+                    id: lm317_power_output
 
 <LM317Current>:
     name: "LM317_current"

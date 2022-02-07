@@ -1,0 +1,102 @@
+<Calculations>:
+    ScreenManager:
+        id: calculations_sm
+        on_parent: app.add_me_to_sm(self, list(root.ids.keys())[0])
+        CalculationListScreen:
+        ResistorLEDCalculateScreen:
+        InductorCalculateScreen:
+        InductorCalculateTurns:
+        InductorCalculateHenrys:
+        ParallelResistorCalculateScreen:
+        SerialCapacitorCalculateScreen:
+        VoltageDividerCalculateScreen:
+        LM317CalculateScreen:
+        LM317Current:
+        LM317Voltage:
+
+<CalculationListScreen>:
+    name: "calculations"
+    BoxLayout:
+        orientation: "vertical"
+        MDScreenTitle:
+            text: "Расчёт компонентов"
+        MDSeparator:
+            height: dp(3)
+        RippleCard:
+            padding: 30, 10, 10, 10
+            ripple_behavior: True
+            on_release: root.manager.current = "LED_cal"
+            MDIcon:
+                icon: "rectangle-outline"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+                size_hint_x: None
+            MDLabel:
+                text: "Расчёт резисторов для светодиодов"
+                text_size: self.size
+                valign: "center"
+        MDSeparator:
+        RippleCard:
+            ripple_behavior: True
+            on_release: root.manager.current = "inductor_cal"
+            padding: 30, 10, 10, 10
+            MDIcon:
+                icon: "rectangle-outline"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+                size_hint_x: None
+            MDLabel:
+                text: "Расчёт катушки индуктивности"
+                text_size: self.size
+                valign: "center"
+        MDSeparator:
+        RippleCard:
+            ripple_behavior: True
+            on_release: root.manager.current = "par_resistor_cal"
+            padding: 30, 10, 10, 10
+            MDIcon:
+                icon: "rectangle-outline"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+                size_hint_x: None
+            MDLabel:
+                text: "Параллельное соединение резисторов"
+                text_size: self.size
+                valign: "center"
+        MDSeparator:
+        RippleCard:
+            ripple_behavior: True
+            on_release: root.manager.current = "ser_capacitor_cal"
+            padding: 30, 10, 10, 10
+            MDIcon:
+                icon: "rectangle-outline"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+                size_hint_x: None
+            MDLabel:
+                text: "Последовательное соединение конденсаторов"
+                text_size: self.size
+                valign: "center"
+        MDSeparator:
+        RippleCard:
+            ripple_behavior: True
+            on_release: root.manager.current = "divider_cal"
+            padding: 30, 10, 10, 10
+            MDIcon:
+                icon: "rectangle-outline"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+                size_hint_x: None
+            MDLabel:
+                text: "Делитель напряжения"
+                text_size: self.size
+                valign: "center"
+        MDSeparator:
+        RippleCard:
+            ripple_behavior: True
+            on_release: root.manager.current = "lm317_cal"
+            padding: 30, 10, 10, 10
+            MDIcon:
+                icon: "rectangle-outline"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+                size_hint_x: None
+            MDLabel:
+                text: "LM317/LM350/LM338 калькулятор"
+                text_size: self.size
+                valign: "center"
+        MDSeparator:

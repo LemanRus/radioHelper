@@ -1,0 +1,49 @@
+<Markings>:
+    ScreenManager:
+        id: markings_sm
+        on_parent: app.add_me_to_sm(self, list(root.ids.keys())[0])
+        NominalsScreen:
+        ResistorsMarking:
+        CapacitorsMarking:
+
+<NominalsScreen>:
+    id: nominals
+    name: "nominals"
+    BoxLayout:
+        orientation: "vertical"
+        MDScreenTitle:
+            text: "Маркировки компонентов"
+            #font_size: app.app_header_size
+#                        size_hint: 1, None
+        MDSeparator:
+            height: dp(3)
+        BoxLayout:
+            GridLayout:
+                cols: 1
+                RippleCard30:
+                    on_release: root.manager.current = "resistor"
+                    MDIcon:
+                        icon: "rectangle-outline"
+                        pos_hint: {"center_x": 0.5, "center_y": .5}
+                        size_hint_x: None
+                    MDLabel:
+                        text: "Резисторы"
+                        text_size: self.size
+                        valign: "center"
+                MDSeparator:
+                RippleCard30:
+                    on_release: root.manager.current = "capacitor"
+                    MDIcon:
+                        icon: "arrow-split-vertical"
+                        pos_hint: {"center_x": 0.5, "center_y": .5}
+                        size_hint_x: None
+                    MDLabel:
+                        text: "Конденсаторы"
+                        text_size: self.size
+                        valign: "center"
+                MDSeparator:
+                Widget:
+                Widget:
+                Widget:
+                Widget:
+                MDSeparator:

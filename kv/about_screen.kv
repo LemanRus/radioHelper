@@ -1,0 +1,72 @@
+#:import Clipboard kivy.core.clipboard.Clipboard
+#:import toast kivymd.toast.toast
+#:import webbrowser webbrowser
+
+<AboutScreen>:
+    name: "about"
+    BoxLayout:
+        orientation: "vertical"
+        MDScreenTitle:
+            text: "О программе"
+        MDSeparator:
+            height: dp(3)
+        MDCard:
+            orientation: "vertical"
+            MDLabel:
+                text: "Помощник радиолюбителя\n\nКарманный помощник, готовый выручить в любую минуту"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+            MDLabel:
+                text: "by Vlad aka LemanRuss"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+        MDCard:
+            MDLabel:
+                text: "Создано автором бескорыстно и с любовью\n100% Python\nАвтор выражает благодарность Гвидо ван Россуму\nи создателям замечательного фреймворка kivy"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+        MDCard:
+            MDLabel:
+                text: "На вкусняшки котику автора:"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+        MDCard:
+            padding: 20, 0, 20, 0
+            FitImage:
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+                source: "img/btc.png"
+                allow_stretch: False
+                size_hint: None, None
+            MDLabel:
+                id: btc_address
+                text: "Любая сумма в биткоинах\nbc1qz070d7tgupm8sr0paan5v6dnaqdj8lmjazamql"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+            MDIconButton:
+                icon: "img/copy.png"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+                user_font_size: "24sp"
+                on_press: Clipboard.copy("bc1qz070d7tgupm8sr0paan5v6dnaqdj8lmjazamql")
+                on_release: toast("Текст скопирован!")
+        MDCard:
+            padding: 20, 0, 20, 0
+            FitImage:
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+                source: "img/card.png"
+                allow_stretch: False
+                size_hint: None, None
+            MDLabel:
+                text: "Или любая сумма на карту"
+                text_size: self.size
+                halign: "center"
+                valign: "center"
+            MDIconButton:
+                icon: "img/outer_link.png"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+                user_font_size: "24sp"
+                on_press: webbrowser.open("https://sobe.ru/na/podderzhat_avtora_prilozheniya")

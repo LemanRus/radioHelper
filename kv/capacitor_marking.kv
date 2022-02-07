@@ -1,0 +1,45 @@
+<CapacitorsMarking>:
+    name: "capacitor"
+    BoxLayout:
+        orientation: "vertical"
+        MDCard10:
+            MDLabelCenter:
+                text: "Введите маркировку керамического конденсатора сквозного монтажа:"
+        BoxLayout:
+            TextInput:
+                id: capacitor_input
+                multiline: False
+                halign: "center"
+                padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
+                on_text_validate: root.calculate_capacitor(self.text)
+            RippleCard:
+                size_hint_x: 0.3
+                on_release: root.calculate_capacitor(capacitor_input.text)
+                MDLabelCenter:
+                    text: "Рассчитать"
+        MDSeparator:
+        MDCard10:
+            MDBorderedLabel:
+                id: capacity
+        MDSeparator:
+        MDCard10:
+            MDLabelCenter:
+                text: "Введите маркировку SMD конденсатора:"
+        MDSeparator:
+        BoxLayout:
+            TextInput:
+                id: smd_capacitor_input
+#                font_size: app.app_font_size
+                multiline: False
+                halign: "center"
+                padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
+                on_text_validate: root.calculate_smd_capacitor(self.text)
+            RippleCard:
+                size_hint_x: 0.3
+                on_release: root.calculate_smd_capacitor(smd_capacitor_input.text)
+                MDLabelCenter:
+                    text: "Рассчитать"
+        MDSeparator:
+        MDCard10:
+            MDBorderedLabel:
+                id: smd_capacity

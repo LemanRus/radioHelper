@@ -1,0 +1,50 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+<MDLabelCenter@MDLabel>:
+    text_size: self.size
+    halign: "center"
+    valign: "center"
+
+<MDBorderedLabel@MDLabel>:
+    canvas.before:
+        Color:
+            rgba: (.5,.5,.5,.7)
+        Line:
+            width: 1.1
+            rectangle: self.x, self.y, self.width, self.height
+    text_size: self.size
+    halign: "center"
+    valign: "center"
+
+<MDScreenTitle@MDLabel>:
+    adaptive_height: True
+    font_style: "H5"
+    halign: "center"
+    text_size: self.size
+
+<MDFlatButtonTransLeft@MDFlatButton>:
+    text_size: self.size
+    halign: "center"
+    valign: "center"
+    pos_hint: {"left": 1, "center_y": .5}
+
+<MDCard10@MDCard>:
+    padding: 10, 10, 10, 10
+
+<RippleCard@MDCard>:
+    ripple_behavior: True
+    padding: 10, 10, 10, 10
+
+<RippleCard30@MDCard>:
+    ripple_behavior: True
+    padding: 30, 10, 10, 10
+
+<MD3Card>:
+
+<CalculateButton@MD3Card>:
+    ripple_behavior: True
+    padding: 10, 10, 10, 10
+    md_bg_color: get_color_from_hex("#2397f3")
+    MDLabelCenter:
+        theme_text_color: "Custom"
+        text_color: 1, 1, 1, 1
+        text: "Рассчитать!"

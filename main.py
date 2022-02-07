@@ -1,7 +1,9 @@
 import os
 # todo: MDScreenTitle для окон
 from kivy.properties import ObjectProperty, StringProperty
+from kivymd.uix.behaviors import RoundedRectangularElevationBehavior
 from kivymd.uix.boxlayout import MDBoxLayout
+from kivymd.uix.card import MDCard
 from kivymd.uix.list import IRightBodyTouch, OneLineListItem
 
 import ResistorsMarking, CapacitorsMarking, ResistorLEDCalculateScreen, InductorCalculateTurns, \
@@ -23,6 +25,12 @@ class CenterList(OneLineListItem):
 class CenterItem(IRightBodyTouch, MDBoxLayout):
     text = StringProperty()
     pass
+
+
+class MD3Card(MDCard, RoundedRectangularElevationBehavior):
+    '''Implements a material design v3 card.'''
+
+    text = StringProperty()
 
 
 class NominalsScreen(MDScreen):

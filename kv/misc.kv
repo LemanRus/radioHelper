@@ -1,3 +1,4 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
 <MDLabelCenter@MDLabel>:
     text_size: self.size
     halign: "center"
@@ -36,3 +37,14 @@
 <RippleCard30@MDCard>:
     ripple_behavior: True
     padding: 30, 10, 10, 10
+
+<MD3Card>:
+
+<CalculateButton@MD3Card>:
+    ripple_behavior: True
+    padding: 10, 10, 10, 10
+    md_bg_color: get_color_from_hex("#2397f3")
+    MDLabelCenter:
+        theme_text_color: "Custom"
+        text_color: 1, 1, 1, 1
+        text: "Рассчитать!"

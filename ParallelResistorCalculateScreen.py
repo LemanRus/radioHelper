@@ -35,9 +35,12 @@ class ParallelResistorCalculateScreen(Screen):
             # for ids, value in self.dynamic_vars.items():
             #     if ids.startswith("input"):
             #         value.padding = [0, value.height / 2.0 - (value.line_height / 2.0) * len(value._lines), 0, 0]
+            self.dynamic_vars["card_Ohm{}".format(self.counter)] = MDCard(padding=(10, 10, 10, 10))
+            self.dynamic_vars["box{}".format(self.counter)].add_widget(self.dynamic_vars["card_Ohm{}".format(self.counter)])
             self.dynamic_vars["Ohm{}".format(self.counter)] = MDLabel(text="Ом",
                                                                     halign="center")
-            self.dynamic_vars["box{}".format(self.counter)].add_widget(self.dynamic_vars["Ohm{}".format(self.counter)])
+            self.dynamic_vars["card_Ohm{}".format(self.counter)].add_widget(
+                self.dynamic_vars["Ohm{}".format(self.counter)])
             self.counter += 1
         except Exception:
             print("Heresy!!")

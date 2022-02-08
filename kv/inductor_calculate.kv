@@ -2,6 +2,10 @@
     name: "inductor_cal"
     BoxLayout:
         orientation: "vertical"
+        MDScreenTitle:
+            text: "Расчёт катушки индуктивности"
+        MDSeparator:
+            height: dp(3)
         RippleCard:
             on_release: root.manager.current = "inductor_turns"
             MDLabelCenter:
@@ -17,6 +21,8 @@
         orientation: "vertical"
         MDScreenTitle:
             text: "Расчёт длины намотки и числа витков"
+        MDSeparator:
+            height: dp(3)
         BoxLayout:
             MDCard10:
                 MDLabelCenter:
@@ -120,6 +126,8 @@
         orientation: "vertical"
         MDScreenTitle:
             text: "Расчёт индуктивности:"
+        MDSeparator:
+            height: dp(3)
         BoxLayout:
             MDCard10:
                 MDLabelCenter:

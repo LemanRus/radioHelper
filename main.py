@@ -28,7 +28,7 @@ class CenterItem(IRightBodyTouch, MDBoxLayout):
 
 
 class MD3Card(MDCard, RoundedRectangularElevationBehavior):
-    '''Implements a material design v3 card.'''
+    """Implements a material design v3 card."""
 
     text = StringProperty()
 

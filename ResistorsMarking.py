@@ -14,19 +14,19 @@ class ResistorsMarking(MDScreen):
 
     dynamic_vars = DictProperty({})
 
-    nominal = {"black": 0, "brown": 1, "red": 2, "orange": 3, "yellow": 4, "green": 5,
-               "blue": 6, "violet": 7, "grey": 8, "white": 9}
-    multiplier = {"gold": 0.1, "silver": 0.01, "black": 1, "brown": 10, "red": 100, "orange": 1000, "yellow": 10000,
-                  "green": 100000, "blue": 1000000, "violet": 10000000, "grey": 100000000}
-    tolerance = {"gold": "±5%", "silver": "±10%", "black": "±0,005%", "brown": "±1%", "red": "±2%", "orange": "±0,01%",
-                 "yellow": "±0,02%", "green": "±0,5%", "blue": "±0,25%", "violet": "±0,1%", "grey": "±0,05%"}
-    thermal = {"gold": "±500 ppm/°С", "silver": "±1000 ppm/°С", "brown": "±100 ppm/°С", "red": "±50 ppm/°С",
-               "orange": "±15 ppm/°С", "yellow": "±25 ppm/°С", "blue": "±10 ppm/°С", "violet": "±5 ppm/°С",
-               "white": "±1 ppm/°С"}
-    colors = {"gold": [1, 0.84, 0, 1], "silver": [0.75, 0.75, 0.75, 1], "black": [0, 0, 0, 1],
-              "brown": [0.4, 0.22, 0, 1], "red": [1, 0, 0, 1], "orange": [0.98, 0.45, 0.02, 1],
-              "yellow": [1, 1, 0, 1], "green": [0.05, 0.64, 0.05, 1], "blue": [0.05, 0.54, 0.95, 1],
-              "violet": [0.54, 0.14, 0.59, 1], "grey": [0.5, 0.5, 0.5, 1], "white": [1, 1, 1, 1]}
+    nominal = {"Чёрный": 0, "Коричневый": 1, "Красный": 2, "Оранжевый": 3, "Жёлтый": 4, "Зелёный": 5,
+               "Синий": 6, "Фиолетовый": 7, "Серый": 8, "Белый": 9}
+    multiplier = {"Золотой": 0.1, "Серебристый": 0.01, "Чёрный": 1, "Коричневый": 10, "Красный": 100, "Оранжевый": 1000, "Жёлтый": 10000,
+                  "Зелёный": 100000, "Синий": 1000000, "Фиолетовый": 10000000, "Серый": 100000000}
+    tolerance = {"Золотой": "±5%", "Серебристый": "±10%", "Чёрный": "±0,005%", "Коричневый": "±1%", "Красный": "±2%", "Оранжевый": "±0,01%",
+                 "Жёлтый": "±0,02%", "Зелёный": "±0,5%", "Синий": "±0,25%", "Фиолетовый": "±0,1%", "Серый": "±0,05%"}
+    thermal = {"Золотой": "±500 ppm/°С", "Серебристый": "±1000 ppm/°С", "Коричневый": "±100 ppm/°С", "Красный": "±50 ppm/°С",
+               "Оранжевый": "±15 ppm/°С", "Жёлтый": "±25 ppm/°С", "Синий": "±10 ppm/°С", "Фиолетовый": "±5 ppm/°С",
+               "Белый": "±1 ppm/°С"}
+    colors = {"Золотой": [1, 0.84, 0, 1], "Серебристый": [0.75, 0.75, 0.75, 1], "Чёрный": [0, 0, 0, 1],
+              "Коричневый": [0.4, 0.22, 0, 1], "Красный": [1, 0, 0, 1], "Оранжевый": [0.98, 0.45, 0.02, 1],
+              "Жёлтый": [1, 1, 0, 1], "Зелёный": [0.05, 0.64, 0.05, 1], "Синий": [0.05, 0.54, 0.95, 1],
+              "Фиолетовый": [0.54, 0.14, 0.59, 1], "Серый": [0.5, 0.5, 0.5, 1], "Белый": [1, 1, 1, 1]}
     eia96 = {"01": 100, "02": 102, "03": 105, "04": 107, "05": 110, "06": 113, "07": 115, "08": 118, "09": 121,
              "10": 124, "11": 127, "12": 130, "13": 133, "14": 137, "15": 140, "16": 143, "17": 147, "18": 150,
              "19": 154, "20": 158, "21": 162, "22": 165, "23": 169, "24": 174, "25": 178, "26": 182, "27": 187,
@@ -73,9 +73,6 @@ class ResistorsMarking(MDScreen):
         self.build_menu()
         self.build_resistor(3)
 
-    def select_color(self):
-        pass
-
     def calculate_resistor(self):
 
         thermal = ""
@@ -98,7 +95,7 @@ class ResistorsMarking(MDScreen):
             multiplier = self.multiplier[self.dynamic_vars["band3"].text]
             resistance = (self.nominal[self.dynamic_vars["band0"].text] * 100 +
                           self.nominal[self.dynamic_vars["band1"].text] * 10 +
-                          self.nominal[self.dynamic_vars["band1"].text]) * multiplier
+                          self.nominal[self.dynamic_vars["band2"].text]) * multiplier
 
         if resistance < 1000:
             self.ids.resistance.text = "{:g} Ом {}{}".format(resistance, tolerance,
@@ -111,13 +108,13 @@ class ResistorsMarking(MDScreen):
                                                               (", ТКС: " + thermal) if thermal else "")
 
     def build_resistor(self, value):
-        bands = {3: {0: list(self.nominal.keys())[1:], 1: list(self.nominal.keys()), 2: list(self.multiplier.keys())},
-                 4: {0: list(self.nominal.keys())[1:], 1: list(self.nominal.keys()), 2: list(self.multiplier.keys()),
-                     3: list(self.tolerance.keys())},
-                 5: {0: list(self.nominal.keys())[1:], 1: list(self.nominal.keys()), 2: list(self.nominal.keys()),
-                     3: list(self.multiplier.keys()), 4: list(self.tolerance.keys())},
-                 6: {0: list(self.nominal.keys())[1:], 1: list(self.nominal.keys()), 2: list(self.nominal.keys()),
-                     3: list(self.multiplier.keys()), 4: list(self.tolerance.keys()), 5: list(self.thermal.keys())},
+        bands = {3: {0: tuple(self.nominal.keys())[1:], 1: tuple(self.nominal.keys()), 2: tuple(self.multiplier.keys())},
+                 4: {0: tuple(self.nominal.keys())[1:], 1: tuple(self.nominal.keys()), 2: tuple(self.multiplier.keys()),
+                     3: tuple(self.tolerance.keys())},
+                 5: {0: tuple(self.nominal.keys())[1:], 1: tuple(self.nominal.keys()), 2: tuple(self.nominal.keys()),
+                     3: tuple(self.multiplier.keys()), 4: tuple(self.tolerance.keys())},
+                 6: {0: tuple(self.nominal.keys())[1:], 1: tuple(self.nominal.keys()), 2: tuple(self.nominal.keys()),
+                     3: tuple(self.multiplier.keys()), 4: tuple(self.tolerance.keys()), 5: tuple(self.thermal.keys())},
                  }
 
         self.ids.resistor_bands.clear_widgets()
@@ -132,17 +129,16 @@ class ResistorsMarking(MDScreen):
                                                                         color=[0, 0, 0, 1] if bands[
                                                                                                   int(value)][
                                                                                                   bands_qty][
-                                                                                                  0] == "gold" else [
+                                                                                                  0] == "Золотой" else [
                                                                             1, 1, 1, 1],
                                                                         background_normal="",
-                                                                        # font_size=App.get_running_app().app_button_size,
                                                                         option_cls="MySpinnerOption",)
                 self.ids["resistor_bands"].add_widget(self.dynamic_vars["band{}".format(bands_qty)])
                 for key, band in self.dynamic_vars.items():
                     if key.startswith("band"):
                         band.bind(text=self.colourize)
                 if bands_qty < int(value) - 1:
-                    self.dynamic_vars["gap{}".format(bands_qty)] = Widget(size_hint_x=0.2)
+                    self.dynamic_vars["gap{}".format(bands_qty)] = Widget(size_hint_x=0.4)
                     self.ids["resistor_bands"].add_widget(self.dynamic_vars["gap{}".format(bands_qty)])
             except KeyError:
                 continue
@@ -151,7 +147,7 @@ class ResistorsMarking(MDScreen):
         for key, band in self.dynamic_vars.items():
             if key.startswith("band"):
                 band.background_color = self.colors[band.text]
-                if band.text == "yellow" or band.text == "gold" or band.text == "white":
+                if band.text == "Жёлтый" or band.text == "Золотой" or band.text == "Белый":
                     band.color = [0, 0, 0, 1]
                 else:
                     band.color = [1, 1, 1, 1]

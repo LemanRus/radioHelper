@@ -1,6 +1,5 @@
 <MySpinnerOption>:
-#    font_size: app.app_button_size
-    color: [0, 0, 0, 1] if self.text in ["white", "yellow", "gold", "silver"] else [1, 1, 1, 1]
+    color: [0, 0, 0, 1] if self.text in ["Белый", "Жёлтый", "Золотой", "Серебристый"] else [1, 1, 1, 1]
     background_color: self.colors[self.text] if self.text in self.colors.keys() else [0.5, 0.5, 0.5, 1]
     background_normal: ""
 
@@ -69,13 +68,13 @@
                 text_size: self.size
         MDSeparator:
         BoxLayout:
-            TextInput:
-                id: smd_input
-#                        font_size: app.app_font_size
-                multiline: False
-                halign: "center"
-                padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
-                on_text_validate: root.calculate_smd_resistor(self.text)
+            MDCard5:
+                TextInput:
+                    id: smd_input
+                    multiline: False
+                    halign: "center"
+                    padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
+                    on_text_validate: root.calculate_smd_resistor(self.text)
             RippleCard:
                 size_hint_x: 0.5
                 on_release: root.calculate_smd_resistor(smd_input.text)

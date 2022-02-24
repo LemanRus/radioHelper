@@ -1,5 +1,4 @@
 import os
-# todo: MDScreenTitle для окон
 from kivy.properties import ObjectProperty, StringProperty
 from kivymd.uix.behaviors import RoundedRectangularElevationBehavior
 from kivymd.uix.boxlayout import MDBoxLayout

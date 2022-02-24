@@ -52,10 +52,8 @@
                 pos_hint: {'center_x': 0.5, 'center_y': 0.5}
             MDLabel:
         MDSeparator:
-        RippleCard:
+        CalculateButton:
             on_release: root.calculate_resistor()
-            MDLabelCenter:
-                text: "Рассчитать!"
         MDSeparator:
         MDCard10:
             MDBorderedLabel:
@@ -75,12 +73,9 @@
                     halign: "center"
                     padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
                     on_text_validate: root.calculate_smd_resistor(self.text)
-            RippleCard:
+            CalculateButton:
                 size_hint_x: 0.5
                 on_release: root.calculate_smd_resistor(smd_input.text)
-                MDLabelCenter:
-                    text: "Рассчитать!"
-                    text_size: self.size
         MDSeparator:
         MDCard10:
             MDBorderedLabel:

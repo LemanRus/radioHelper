@@ -8,13 +8,17 @@
             BoxLayout:
                 id: par_res_box
                 orientation: "vertical"
-            BlueButton:
+            BoxLayout:
+                orientation: "vertical"
                 size_hint_x: 0.4
-                on_release: root.add_resistor()
-                MDLabelCenter:
-                    theme_text_color: "Custom"
-                    text_color: 1, 1, 1, 1
-                    text: "Добавить резистор"
+                MDCard:
+                BlueButton:
+                    on_release: root.add_resistor()
+                    MDLabelCenter:
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
+                        text: "Добавить резистор"
+                MDCard:
         MDSeparator:
         BlueButton:
             on_release: root.reset()
@@ -23,12 +27,8 @@
                 text_color: 1, 1, 1, 1
                 text: "Очистить"
         MDSeparator:
-        BlueButton:
+        CalculateButton:
             on_release: root.par_res_calculate()
-            MDLabelCenter:
-                theme_text_color: "Custom"
-                text_color: 1, 1, 1, 1
-                text: "Рассчитать!"
         MDSeparator:
         BoxLayout:
             MDCard10:

@@ -62,3 +62,6 @@ class ResistorLEDCalculateScreen(Screen):
                 self.ids.led_cur.text = "{:g} мА".format(float(led_cur) * float(led_quant))
         except ValueError:
             self.ids.led_e24.text = "Неверный ввод!"
+            self.ids.led_result.text = "Неверный ввод!"
+            self.ids.led_res_power.text = "Неверный ввод!"
+            self.ids.led_cur.text = "Неверный ввод!"

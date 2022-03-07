@@ -31,10 +31,12 @@ class SerialCapacitorCalculateScreen(Screen):
                                                                                 pos_hint={"left": 1, "center_y": .5})
             self.dynamic_vars["card{}".format(self.counter)].add_widget(self.dynamic_vars["input{}".format(self.counter)
                                                                                           ])
+            self.dynamic_vars["card_picofarad{}".format(self.counter)] = MDCard(padding=(10, 10, 10, 10))
+            self.dynamic_vars["box{}".format(self.counter)].add_widget(self.dynamic_vars["card_picofarad{}".format(self.counter)])
             self.dynamic_vars["picofarad{}".format(self.counter)] = MDLabel(text="пФ",
                                                                             halign="center")
-            self.dynamic_vars["box{}".format(self.counter
-                                             )].add_widget(self.dynamic_vars["picofarad{}".format(self.counter)])
+            self.dynamic_vars["card_picofarad{}".format(self.counter)].add_widget(
+                self.dynamic_vars["picofarad{}".format(self.counter)])
             self.counter += 1
         except Exception:
             print("Heresy!!")

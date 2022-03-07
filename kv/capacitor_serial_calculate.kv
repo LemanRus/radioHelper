@@ -8,46 +8,32 @@
             BoxLayout:
                 id: ser_cap_box
                 orientation: "vertical"
-            Button:
+            BoxLayout:
+                orientation: "vertical"
                 size_hint_x: 0.4
-                text: "Добавить конденсатор"
-                # font_size: app.app_button_size
-                text_size: self.size
-                halign: "center"
-                valign: "center"
-                on_release: root.add_capacitor()
-        Button:
-            text: "Очистить"
-            # font_size: app.app_button_size
-            text_size: self.size
-            halign: "center"
-            valign: "center"
+                MDCard:
+                BlueButton:
+                    on_release: root.add_capacitor()
+                    MDLabelCenter:
+                        theme_text_color: "Custom"
+                        text_color: 1, 1, 1, 1
+                        text: "Добавить конденсатор"
+                MDCard:
+        MDSeparator:
+        BlueButton:
             on_release: root.reset()
-        Button:
-            text: "Рассчитать!"
-            # font_size: app.app_button_size
-            text_size: self.size
-            halign: "center"
-            valign: "center"
+            MDLabelCenter:
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                text: "Очистить"
+        MDSeparator:
+        CalculateButton:
             on_release: root.ser_cap_calculate()
-        MDLabel:
-            canvas.before:
-                Color:
-                    rgba: 1,1,1,1
-                Rectangle:
-                    size: self.size
-                    pos: self.pos
-            size_hint_y: 0.05
+        MDSeparator:
         BoxLayout:
-            MDLabel:
-                text: "Результат:"
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: ser_cap_output
-                text_size: self.size
-                # font_size: app.app_# font_size
-                halign: "center"
-                valign: "center"
+            MDCard10:
+                MDLabelCenter:
+                    text: "Результат:"
+            MDCard10:
+                MDBorderedLabel:
+                    id: ser_cap_output

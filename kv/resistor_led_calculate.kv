@@ -11,9 +11,9 @@
                 MDLabelCenter:
                     text: "Напряжение источника питания:"
             MDCard5:
+                size_hint_x: 0.2
                 TextInput:
                     id: led_vol
-                    size_hint_x: 0.2
                     text: '5'
                     multiline: False
                     halign: "center"
@@ -33,9 +33,9 @@
                         MDLabelCenter:
                             text: "Напряжение питания светодиода:"
                     MDCard5:
+                        size_hint_x: 0.2
                         TextInput:
                             id: led_vol_input
-                            size_hint_x: 0.2
                             multiline: False
                             halign: "center"
                             padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
@@ -48,9 +48,9 @@
                         MDLabelCenter:
                             text: "Ток светодиода:"
                     MDCard5:
+                        size_hint_x: 0.2
                         TextInput:
                             id: led_cur_input
-                            size_hint_x: 0.2
                             multiline: False
                             halign: "center"
                             padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
@@ -78,14 +78,14 @@
             MDCard10:
                 MDLabelCenter:
                     text: "Количество светодиодов:"
-            TextInput:
-                id: led_quantity
+            MDCard5:
                 size_hint_x: 0.2
-                text: '1'
-                multiline: False
-                halign: "center"
-                padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
-                on_text_validate:
+                TextInput:
+                    id: led_quantity
+                    text: '1'
+                    multiline: False
+                    halign: "center"
+                    padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
             MDCard:
                 size_hint_x: 0.1
                 MDLabelCenter:
@@ -104,7 +104,7 @@
                 MDLabelCenter:
                     text: "Расчётное сопротивление:"
             MDCard10:
-                size_hint_x: 0.3
+                size_hint_x: 0.5
                 MDBorderedLabel:
                     id: led_result
         BoxLayout:
@@ -112,7 +112,7 @@
                 MDLabelCenter:
                     text: "Стандартное значение:"
             MDCard10:
-                size_hint_x: 0.3
+                size_hint_x: 0.5
                 MDBorderedLabel:
                     id: led_e24
         BoxLayout:
@@ -120,7 +120,7 @@
                 MDLabelCenter:
                     text: "Рассеиваемая на резисторе мощность:"
             MDCard10:
-                size_hint_x: 0.3
+                size_hint_x: 0.5
                 MDBorderedLabel:
                     id: led_res_power
         BoxLayout:
@@ -128,6 +128,6 @@
                 MDLabelCenter:
                     text: "Потребляемый ток:"
             MDCard10:
-                size_hint_x: 0.3
+                size_hint_x: 0.5
                 MDBorderedLabel:
                     id: led_cur

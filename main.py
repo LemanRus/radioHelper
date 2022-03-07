@@ -48,6 +48,14 @@ class LM317CalculateScreen(MDScreen):
     pass
 
 
+class VoltageDividerVout(MDScreen):
+    pass
+
+
+class VoltageDividerR2(MDScreen):
+    pass
+
+
 class InductorCalculateScreen(MDScreen):
     pass
 
@@ -103,6 +111,8 @@ class RadioHelperMD(MDApp):
                         value.current = "lm317_cal"
                     elif value.current in ["inductor_turns", "inductor_henrys"]:
                         value.current = "inductor_cal"
+                    elif value.current in ["divider_vout", "divider_r2"]:
+                        value.current = "divider_cal"
                     else:
                         value.current = "calculations"
                 if key == "markings_sm":

@@ -2,6 +2,24 @@
     name: "divider_cal"
     BoxLayout:
         orientation: "vertical"
+        MDScreenTitle:
+            text: "Расчёт делителя напряжение"
+        MDSeparator:
+            height: dp(3)
+        RippleCard:
+            on_release: root.manager.current = "divider_vout"
+            MDLabelCenter:
+                text: "Расчёт выходного напряжения"
+        MDSeparator:
+        RippleCard:
+            on_release: root.manager.current = "divider_r2"
+            MDLabelCenter:
+                text: "Расчёт индуктивности"
+
+<VoltageDividerVout>:
+    name: "divider_vout"
+    BoxLayout:
+        orientation: "vertical"
         BoxLayout:
             MDLabel:
                 text: "Напряжение источника питания:"
@@ -128,6 +146,11 @@
                 # font_size: app.app_font_size
                 halign: "center"
                 valign: "center"
+
+<VoltageDividerR2>:
+    name: "divider_r2"
+    BoxLayout:
+        orientation: "vertical"
         MDLabel:
             canvas.before:
                 Color:

@@ -23,7 +23,7 @@ class ResistorsMarking(MDScreen):
     thermal = {"Золотой": "±500 ppm/°С", "Серебристый": "±1000 ppm/°С", "Коричневый": "±100 ppm/°С", "Красный": "±50 ppm/°С",
                "Оранжевый": "±15 ppm/°С", "Жёлтый": "±25 ppm/°С", "Синий": "±10 ppm/°С", "Фиолетовый": "±5 ppm/°С",
                "Белый": "±1 ppm/°С"}
-    colors = {"Золотой": [1, 0.84, 0, 1], "Серебристый": [0.75, 0.75, 0.75, 1], "Чёрный": [0, 0, 0, 1],
+    colors = {"Золотой": [1, 0.84, 0, 1], "Серебристый": [0.8, 0.8, 0.8, 1], "Чёрный": [0, 0, 0, 1],
               "Коричневый": [0.4, 0.22, 0, 1], "Красный": [1, 0, 0, 1], "Оранжевый": [0.98, 0.45, 0.02, 1],
               "Жёлтый": [1, 1, 0, 1], "Зелёный": [0.05, 0.64, 0.05, 1], "Синий": [0.05, 0.54, 0.95, 1],
               "Фиолетовый": [0.54, 0.14, 0.59, 1], "Серый": [0.5, 0.5, 0.5, 1], "Белый": [1, 1, 1, 1]}
@@ -126,11 +126,11 @@ class ResistorsMarking(MDScreen):
                                                                         values=list(bands[int(value)][bands_qty]),
                                                                         background_color=self.colors[
                                                                             bands[int(value)][bands_qty][0]],
-                                                                        color=[0, 0, 0, 1] if bands[
-                                                                                                  int(value)][
-                                                                                                  bands_qty][
-                                                                                                  0] == "Золотой" else [
-                                                                            1, 1, 1, 1],
+                                                                        color=[0, 0, 0, 0],  # if bands[
+                                                                            #                       int(value)][
+                                                                            #                       bands_qty][
+                                                                            #                       0] == "Золотой" else [
+                                                                            # 1, 1, 1, 1],
                                                                         background_normal="",
                                                                         option_cls="MySpinnerOption",)
                 self.ids["resistor_bands"].add_widget(self.dynamic_vars["band{}".format(bands_qty)])
@@ -147,10 +147,10 @@ class ResistorsMarking(MDScreen):
         for key, band in self.dynamic_vars.items():
             if key.startswith("band"):
                 band.background_color = self.colors[band.text]
-                if band.text == "Жёлтый" or band.text == "Золотой" or band.text == "Белый":
-                    band.color = [0, 0, 0, 1]
-                else:
-                    band.color = [1, 1, 1, 1]
+                # if band.text == "Жёлтый" or band.text == "Золотой" or band.text == "Белый":
+                #     band.color = [0, 0, 0, 1]
+                # else:
+                #     band.color = [1, 1, 1, 1]
 
     def calculate_smd_resistor(self, marking):
         try:

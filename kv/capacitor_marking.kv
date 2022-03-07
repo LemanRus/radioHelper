@@ -2,6 +2,8 @@
     name: "capacitor"
     BoxLayout:
         orientation: "vertical"
+        MDScreenTitle:
+            text: "Маркировка конденсаторов"
         MDCard10:
             MDLabelCenter:
                 text: "Введите маркировку керамического конденсатора сквозного монтажа:"
@@ -21,6 +23,7 @@
             MDBorderedLabel:
                 id: capacity
         MDSeparator:
+            height: dp(5)
         MDCard10:
             MDLabelCenter:
                 text: "Введите маркировку SMD конденсатора:"

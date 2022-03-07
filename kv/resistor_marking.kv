@@ -1,5 +1,6 @@
 <MySpinnerOption>:
-    color: [0, 0, 0, 1] if self.text in ["Белый", "Жёлтый", "Золотой", "Серебристый"] else [1, 1, 1, 1]
+#    color: [0, 0, 0, 1] if self.text in ["Белый", "Жёлтый", "Золотой", "Серебристый"] else [1, 1, 1, 1]
+    color: [0, 0, 0, 0]
     background_color: self.colors[self.text] if self.text in self.colors.keys() else [0.5, 0.5, 0.5, 1]
     background_normal: ""
 
@@ -19,6 +20,8 @@
     name: "resistor"
     MDBoxLayout:
         orientation: "vertical"
+        MDScreenTitle:
+            text: "Маркировка резисторов"
         MDBoxLayout:
             MDCard10:
                 MDLabelCenter:

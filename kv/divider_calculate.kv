@@ -14,14 +14,14 @@
         RippleCard:
             on_release: root.manager.current = "divider_r2"
             MDLabelCenter:
-                text: "Расчёт индуктивности"
+                text: "Расчёт сопротивления"
 
 <VoltageDividerVout>:
     name: "divider_vout"
     BoxLayout:
         orientation: "vertical"
         MDScreenTitle:
-            text: "Расчёт длины намотки и числа витков"
+            text: "Расчёт выходного напряжения"
         MDSeparator:
             height: dp(3)
         BoxLayout:
@@ -40,258 +40,158 @@
                 MDLabelCenter:
                     text: "В"
         BoxLayout:
-            MDLabel:
-                text: "Сопротивление R1:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            TextInput:
-                id: r1
-                size_hint_x: 0.1
-                # font_size: app.app_font_size
-                multiline: False
-                halign: "center"
-                padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
-                on_text_validate:
-            MDLabel:
-                size_hint_x: 0.1
-                text: "Ом"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+            MDCard10:
+                MDLabelCenter:
+                    text: "Сопротивление R1:"
+            MDCard5:
+                size_hint_x: 0.4
+                TextInput:
+                    id: r1
+                    size_hint_x: 0.1
+                    multiline: False
+                    halign: "center"
+                    padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
+            MDCard10:
+                size_hint_x: 0.2
+                MDLabelCenter:
+                    text: "Ом"
+                    text_size: self.size
+                    halign: "center"
+                    valign: "center"
         BoxLayout:
-            MDLabel:
-                text: "Сопротивление R2:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            TextInput:
-                id: r2
-                size_hint_x: 0.1
-                # font_size: app.app_font_size
-                multiline: False
-                halign: "center"
-                padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
-                on_text_validate:
-            MDLabel:
-                size_hint_x: 0.1
-                text: "Ом"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-        Button:
-            text: "Рассчитать!"
-            # font_size: app.app_button_size
-            text_size: self.size
-            halign: "center"
-            valign: "center"
+            MDCard10:
+                MDLabelCenter:
+                    text: "Сопротивление R2:"
+            MDCard5:
+                size_hint_x: 0.4
+                TextInput:
+                    id: r2
+                    multiline: False
+                    halign: "center"
+                    padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
+            MDCard10:
+                size_hint_x: 0.2
+                MDLabelCenter:
+                    text: "Ом"
+        MDSeparator:
+        CalculateButton:
             on_release: root.divider_calculate_vout(v_in.text, r1.text, r2.text)
-        MDLabel:
-            canvas.before:
-                Color:
-                    rgba: 1,1,1,1
-                Rectangle:
-                    size: self.size
-                    pos: self.pos
-            size_hint_y: 0.05
-        MDLabel:
-            text: "Результат:"
-            text_size: self.size
-            # font_size: app.app_font_size
-            halign: "center"
-            valign: "center"
+        MDSeparator:
+        MDCard10
+            MDLabelCenter:
+                text: "Результат:"
         BoxLayout:
-            MDLabel:
-                text: "Выходное напряжение:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: v_out
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                text: "В"
-                size_hint_x: 0.1
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+            MDCard10:
+                MDLabelCenter:
+                    text: "Выходное напряжение:"
+            MDCard10:
+                size_hint_x: 0.4
+                MDBorderedLabel:
+                    id: v_out
+            MDCard5
+                size_hint_x: 0.2
+                MDLabelCenter:
+                    text: "В"
         BoxLayout:
-            MDLabel:
-                text: "Коэффициент делителя"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: divider_rate
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                size_hint_x: 0.1
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+            MDCard10:
+                MDLabelCenter:
+                    text: "Коэффициент делителя"
+            MDCard10:
+                size_hint_x: 0.4
+                MDBorderedLabel:
+                    id: divider_rate
+            MDCard10:
+                size_hint_x: 0.2
 
 <VoltageDividerR2>:
     name: "divider_r2"
     BoxLayout:
         orientation: "vertical"
-        MDLabel:
-            canvas.before:
-                Color:
-                    rgba: 1,1,1,1
-                Rectangle:
-                    size: self.size
-                    pos: self.pos
-            size_hint_y: 0.05
+        MDScreenTitle:
+            text: "Расчёт сопротивления"
+        MDSeparator:
+            height: dp(3)
         BoxLayout:
-            MDLabel:
-                text: "Напряжение источника питания:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            TextInput:
-                id: v_in_r
-                size_hint_x: 0.1
-                # font_size: app.app_font_size
-                multiline: False
-                halign: "center"
-                padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
-                on_text_validate:
-            MDLabel:
-                size_hint_x: 0.1
-                text: "В"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+            MDCard10:
+                MDLabelCenter:
+                    text: "Напряжение источника питания:"
+            MDCard5:
+                size_hint_x: 0.4
+                TextInput:
+                    id: v_in_r
+                    multiline: False
+                    halign: "center"
+                    padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
+            MDCard10:
+                size_hint_x: 0.2
+                MDLabelCenter:
+                    text: "В"
         BoxLayout:
-            MDLabel:
-                text: "Выходное напряжение:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            TextInput:
-                id: v_out_r
-                size_hint_x: 0.1
-                # font_size: app.app_font_size
-                multiline: False
-                halign: "center"
-                padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
-                on_text_validate:
-            MDLabel:
-                size_hint_x: 0.1
-                text: "В"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+            MDCard10:
+                MDLabelCenter:
+                    text: "Выходное напряжение:"
+            MDCard5:
+                size_hint_x: 0.4
+                TextInput:
+                    id: v_out_r
+                    multiline: False
+                    halign: "center"
+                    padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
+            MDCard10:
+                size_hint_x: 0.2
+                MDLabelCenter:
+                    text: "В"
         BoxLayout:
-            MDLabel:
-                text: "Сопротивление R1:"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            TextInput:
-                id: r1_input
-                size_hint_x: 0.1
-                # font_size: app.app_font_size
-                multiline: False
-                halign: "center"
-                padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
-                on_text_validate:
-            MDLabel:
-                size_hint_x: 0.1
-                text: "Ом"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-        Button:
-            text: "Рассчитать!"
-            # font_size: app.app_button_size
-            text_size: self.size
-            halign: "center"
-            valign: "center"
+            MDCard10:
+                MDLabelCenter:
+                    text: "Сопротивление R1:"
+            MDCard5:
+                size_hint_x: 0.4
+                TextInput:
+                    id: r1_input
+                    multiline: False
+                    halign: "center"
+                    padding: [0, self.height / 2.0 - (self.line_height / 2.0) * len(self._lines), 0, 0]
+            MDCard10:
+                size_hint_x: 0.2
+                MDLabelCenter:
+                    text: "Ом"
+        MDSeparator:
+        CalculateButton:
             on_release: root.divider_calculate_r(v_in_r.text, v_out_r.text, r1_input.text)
-        MDLabel:
-            canvas.before:
-                Color:
-                    rgba: 1,1,1,1
-                Rectangle:
-                    size: self.size
-                    pos: self.pos
-            size_hint_y: 0.05
-        MDLabel:
-            text: "Результат:"
-            text_size: self.size
-            # font_size: app.app_font_size
-            halign: "center"
-            valign: "center"
+        MDSeparator:
+        MDCard10:
+            MDLabelCenter:
+                text: "Результат:"
         BoxLayout:
-            MDLabel:
-                text: "Сопротивление R2"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: r2_calculated
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+            MDCard10:
+                MDLabelCenter:
+                    text: "Сопротивление R2"
+            MDCard10:
+                size_hint_x: 0.6
+                MDBorderedLabel:
+                    id: r2_calculated
         BoxLayout:
-            MDLabel:
-                text: "Коэффициент делителя"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: divider_rate_r
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+            MDCard10:
+                MDLabelCenter:
+                    text: "Коэффициент делителя"
+            MDCard10:
+                size_hint_x: 0.6
+                MDBorderedLabel:
+                    id: divider_rate_r
         BoxLayout:
-            MDLabel:
-                text: "Резистор стандартного ряда"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: r2_e24
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+            MDCard10:
+                MDLabelCenter:
+                    text: "Резистор стандартного ряда"
+            MDCard10:
+                size_hint_x: 0.6
+                MDBorderedLabel:
+                    id: r2_e24
         BoxLayout:
-            MDLabel:
-                text: "Выходное напряжение с резистором из стандартного ряда"
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
-            MDLabel:
-                id: vout_e24
-                text_size: self.size
-                # font_size: app.app_font_size
-                halign: "center"
-                valign: "center"
+            MDCard10:
+                MDLabelCenter:
+                    text: "Выходное напряжение с резистором из стандартного ряда"
+            MDCard10:
+                size_hint_x: 0.6
+                MDBorderedLabel:
+                    id: vout_e24

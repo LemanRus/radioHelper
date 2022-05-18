@@ -29,9 +29,10 @@ class LM317Current(Screen):
                     vout = float(vout)
                     if not (3 <= vout <= 38):
                         self.ids.lm317_vin_output_cur.text = "Падение напряжения должно быть больше 2В и меньше 38В!"
+                        self.ids.lm317_vin_output_cur.font_size = "10sp"
                     else:
                         vin_corrected = vout + 3.7
-                        self.ids.lm317_vin_output_cur.text = "{:g} А".format(vin_corrected)
+                        self.ids.lm317_vin_output_cur.text = "{:g} В".format(vin_corrected)
                 else:
                     self.ids.lm317_vin_output_cur.text = ""
 

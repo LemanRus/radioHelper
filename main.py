@@ -153,6 +153,7 @@ class RadioHelperMD(MDApp):
 
     def build(self):
         Window.bind(on_keyboard=self.Android_back_click)
+        Window.softinput_mode = 'below_target'
         Builder.load_file("kv/misc.kv")
         kv = os.listdir("kv")
         for kv_file in kv:

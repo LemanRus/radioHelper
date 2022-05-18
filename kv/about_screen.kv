@@ -34,25 +34,25 @@
                 text_size: self.size
                 halign: "center"
                 valign: "center"
-        MDCard:
-            padding: 20, 0, 20, 0
-            FitImage:
-                pos_hint: {"center_x": 0.5, "center_y": .5}
-                source: "img/btc.png"
-                allow_stretch: False
-                size_hint: None, None
-            MDLabel:
-                id: btc_address
-                text: "Любая сумма в биткоинах\nbc1qz070d7tgupm8sr0paan5v6dnaqdj8lmjazamql"
-                text_size: self.size
-                halign: "center"
-                valign: "center"
-            MDIconButton:
-                icon: "img/copy.png"
-                pos_hint: {"center_x": 0.5, "center_y": .5}
-                user_font_size: "24sp"
-                on_press: Clipboard.copy("bc1qz070d7tgupm8sr0paan5v6dnaqdj8lmjazamql")
-                on_release: toast("Текст скопирован!")
+#        MDCard:
+#            padding: 20, 0, 20, 0
+#            FitImage:
+#                pos_hint: {"center_x": 0.5, "center_y": .5}
+#                source: "img/btc.png"
+#                allow_stretch: False
+#                size_hint: None, None
+#            MDLabel:
+#                id: btc_address
+#                text: "Любая сумма в биткоинах\nbc1qz070d7tgupm8sr0paan5v6dnaqdj8lmjazamql"
+#                text_size: self.size
+#                halign: "center"
+#                valign: "center"
+#            MDIconButton:
+#                icon: "img/copy.png"
+#                pos_hint: {"center_x": 0.5, "center_y": .5}
+#                user_font_size: "24sp"
+#                on_press: Clipboard.copy("bc1qz070d7tgupm8sr0paan5v6dnaqdj8lmjazamql")
+#                on_release: toast("Текст скопирован!")
         MDCard:
             padding: 20, 0, 20, 0
             FitImage:
@@ -61,7 +61,8 @@
                 allow_stretch: False
                 size_hint: None, None
             MDLabel:
-                text: "Или любая сумма на карту"
+#                text: "Или любая сумма на карту"
+                text: "Любая сумма на карту"
                 text_size: self.size
                 halign: "center"
                 valign: "center"

@@ -129,7 +129,31 @@ class HandbookScreen(MDScreen):
     pass
 
 
+class Tables(MDScreen):
+    pass
+
+
+class Theory(MDScreen):
+    pass
+
+
+class Symbols(MDScreen):
+    pass
+
+
 class Pinout(MDScreen):
+    pass
+
+
+class Connections(MDScreen):
+    pass
+
+
+class Components(MDScreen):
+    pass
+
+
+class Lifehacks(MDScreen):
     pass
 
 

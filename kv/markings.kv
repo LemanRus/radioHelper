@@ -11,39 +11,37 @@
     name: "nominals"
     BoxLayout:
         orientation: "vertical"
-        MDScreenTitle:
-            text: "Маркировки компонентов"
-            #font_size: app.app_header_size
-#                        size_hint: 1, None
+        MDCard20:
+            orientation: "vertical"
+            Image:
+                source: "img/headers/markings.jpg"
+            MDLabel:
+                text: "Маркировки компонентов"
+                bold: True
+                font_size: sp(20)
+                text_size: self.size
+                valign: "center"
+                halign: "center"
         MDSeparator:
             height: dp(3)
-        BoxLayout:
-            GridLayout:
-                cols: 1
-                RippleCard30:
-                    on_release: root.manager.current = "resistor"
-                    MDIcon:
-                        icon: "rectangle-outline"
-                        pos_hint: {"center_x": 0.5, "center_y": .5}
-                        size_hint_x: None
-                    MDLabel:
-                        text: "Резисторы"
-                        text_size: self.size
-                        valign: "center"
-                MDSeparator:
-                RippleCard30:
-                    on_release: root.manager.current = "capacitor"
-                    MDIcon:
-                        icon: "arrow-split-vertical"
-                        pos_hint: {"center_x": 0.5, "center_y": .5}
-                        size_hint_x: None
-                    MDLabel:
-                        text: "Конденсаторы"
-                        text_size: self.size
-                        valign: "center"
-                MDSeparator:
-                Widget:
-                Widget:
-                Widget:
-                Widget:
-                MDSeparator:
+        BRCard30:
+            on_release: root.manager.current = "resistor"
+            MDIcon:
+                icon: "rectangle-outline"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+                size_hint_x: None
+            MDLabel:
+                text: "Резисторы"
+                text_size: self.size
+                valign: "center"
+        MDSeparator:
+        BRCard30:
+            on_release: root.manager.current = "capacitor"
+            MDIcon:
+                icon: "arrow-split-vertical"
+                pos_hint: {"center_x": 0.5, "center_y": .5}
+                size_hint_x: None
+            MDLabel:
+                text: "Конденсаторы"
+                text_size: self.size
+                valign: "center"

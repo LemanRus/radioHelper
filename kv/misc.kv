@@ -1,4 +1,6 @@
 #:import get_color_from_hex kivy.utils.get_color_from_hex
+#:import RectangularElevationBehavior kivymd.uix.behaviors
+
 <MDLabelCenter@MDLabel>:
     text_size: self.size
     halign: "center"
@@ -27,20 +29,6 @@
     valign: "center"
     pos_hint: {"left": 1, "center_y": .5}
 
-<MDCard10@MDCard>:
-    padding: 10, 10, 10, 10
-
-<MDCard5@MDCard>:
-    padding: 5, 5, 5, 5
-
-<RippleCard@MDCard>:
-    ripple_behavior: True
-    padding: 10, 10, 10, 10
-
-<RippleCard30@MDCard>:
-    ripple_behavior: True
-    padding: 30, 10, 10, 10
-
 <MD3Card>:
 
 <BlueButton@MD3Card>:
@@ -56,3 +44,44 @@
         theme_text_color: "Custom"
         text_color: 1, 1, 1, 1
         text: "Рассчитать!"
+
+<MDCard10@MD3Card>:
+    padding: 10, 10, 10, 10
+
+<MDCard5@MD3Card>:
+    padding: 5, 5, 5, 5
+
+<MDCard20@MD3Card>:
+    padding: 20, 20, 20, 20
+
+<RippleCard@MD3Card>:
+    ripple_behavior: True
+    padding: 10, 10, 10, 10
+
+<RippleCard30@MD3Card>:
+    ripple_behavior: True
+    padding: 30, 10, 10, 10
+
+<BorderedCard10@MDCard10>:
+    canvas.after:
+        Color:
+            rgba: (.5,.5,.5,.7)
+        Line:
+            width: 1.1
+            rectangle: self.x + sp(5), self.y + sp(5), self.width - sp(10), self.height - sp(10)
+
+<BorderedCard20@MDCard20>:
+    canvas.after:
+        Color:
+            rgba: (.5,.5,.5,.7)
+        Line:
+            width: 1.1
+            rectangle: self.x + sp(15), self.y + sp(15), self.width - sp(30), self.height - sp(30)
+
+<BRCard30@RippleCard30>:
+    canvas.after:
+        Color:
+            rgba: (.5,.5,.5,.7)
+        Line:
+            width: 1.1
+            rectangle: self.x + sp(15), self.y + sp(15), self.width - sp(30), self.height - sp(30)

@@ -11,16 +11,18 @@ from StandardRows import StandardRows
 
 
 class ResistorsMarking(MDScreen):
-
     dynamic_vars = DictProperty({})
 
     nominal = {"Чёрный": 0, "Коричневый": 1, "Красный": 2, "Оранжевый": 3, "Жёлтый": 4, "Зелёный": 5,
                "Синий": 6, "Фиолетовый": 7, "Серый": 8, "Белый": 9}
-    multiplier = {"Золотой": 0.1, "Серебристый": 0.01, "Чёрный": 1, "Коричневый": 10, "Красный": 100, "Оранжевый": 1000, "Жёлтый": 10000,
+    multiplier = {"Золотой": 0.1, "Серебристый": 0.01, "Чёрный": 1, "Коричневый": 10, "Красный": 100, "Оранжевый": 1000,
+                  "Жёлтый": 10000,
                   "Зелёный": 100000, "Синий": 1000000, "Фиолетовый": 10000000, "Серый": 100000000}
-    tolerance = {"Золотой": "±5%", "Серебристый": "±10%", "Чёрный": "±0,005%", "Коричневый": "±1%", "Красный": "±2%", "Оранжевый": "±0,01%",
+    tolerance = {"Золотой": "±5%", "Серебристый": "±10%", "Чёрный": "±0,005%", "Коричневый": "±1%", "Красный": "±2%",
+                 "Оранжевый": "±0,01%",
                  "Жёлтый": "±0,02%", "Зелёный": "±0,5%", "Синий": "±0,25%", "Фиолетовый": "±0,1%", "Серый": "±0,05%"}
-    thermal = {"Золотой": "±500 ppm/°С", "Серебристый": "±1000 ppm/°С", "Коричневый": "±100 ppm/°С", "Красный": "±50 ppm/°С",
+    thermal = {"Золотой": "±500 ppm/°С", "Серебристый": "±1000 ppm/°С", "Коричневый": "±100 ppm/°С",
+               "Красный": "±50 ppm/°С",
                "Оранжевый": "±15 ppm/°С", "Жёлтый": "±25 ppm/°С", "Синий": "±10 ppm/°С", "Фиолетовый": "±5 ppm/°С",
                "Белый": "±1 ppm/°С"}
     colors = {"Золотой": [1, 0.84, 0, 1], "Серебристый": [0.8, 0.8, 0.8, 1], "Чёрный": [0, 0, 0, 1],
@@ -45,19 +47,19 @@ class ResistorsMarking(MDScreen):
         menu_items = [{"center_text": "3",
                        "viewclass": "CenterList",
                        "on_release": lambda x="3": self.set_item(x),
-                       "height": dp(56),},
+                       "height": dp(56), },
                       {"center_text": "4",
                        "viewclass": "CenterList",
                        "on_release": lambda x="4": self.set_item(x),
-                       "height": dp(56),},
+                       "height": dp(56), },
                       {"center_text": "5",
                        "viewclass": "CenterList",
                        "on_release": lambda x="5": self.set_item(x),
-                       "height": dp(56),},
+                       "height": dp(56), },
                       {"center_text": "6",
                        "viewclass": "CenterList",
                        "on_release": lambda x="6": self.set_item(x),
-                       "height": dp(56),}, ]
+                       "height": dp(56), }, ]
         self.menu = MDDropdownMenu(
             caller=self.ids.resistor_marking_menu,
             items=menu_items,
@@ -108,14 +110,15 @@ class ResistorsMarking(MDScreen):
                                                               (", ТКС: " + thermal) if thermal else "")
 
     def build_resistor(self, value):
-        bands = {3: {0: tuple(self.nominal.keys())[1:], 1: tuple(self.nominal.keys()), 2: tuple(self.multiplier.keys())},
-                 4: {0: tuple(self.nominal.keys())[1:], 1: tuple(self.nominal.keys()), 2: tuple(self.multiplier.keys()),
-                     3: tuple(self.tolerance.keys())},
-                 5: {0: tuple(self.nominal.keys())[1:], 1: tuple(self.nominal.keys()), 2: tuple(self.nominal.keys()),
-                     3: tuple(self.multiplier.keys()), 4: tuple(self.tolerance.keys())},
-                 6: {0: tuple(self.nominal.keys())[1:], 1: tuple(self.nominal.keys()), 2: tuple(self.nominal.keys()),
-                     3: tuple(self.multiplier.keys()), 4: tuple(self.tolerance.keys()), 5: tuple(self.thermal.keys())},
-                 }
+        bands = {
+            3: {0: tuple(self.nominal.keys())[1:], 1: tuple(self.nominal.keys()), 2: tuple(self.multiplier.keys())},
+            4: {0: tuple(self.nominal.keys())[1:], 1: tuple(self.nominal.keys()), 2: tuple(self.multiplier.keys()),
+                3: tuple(self.tolerance.keys())},
+            5: {0: tuple(self.nominal.keys())[1:], 1: tuple(self.nominal.keys()), 2: tuple(self.nominal.keys()),
+                3: tuple(self.multiplier.keys()), 4: tuple(self.tolerance.keys())},
+            6: {0: tuple(self.nominal.keys())[1:], 1: tuple(self.nominal.keys()), 2: tuple(self.nominal.keys()),
+                3: tuple(self.multiplier.keys()), 4: tuple(self.tolerance.keys()), 5: tuple(self.thermal.keys())},
+            }
 
         self.ids.resistor_bands.clear_widgets()
         self.dynamic_vars.clear()
@@ -127,12 +130,12 @@ class ResistorsMarking(MDScreen):
                                                                         background_color=self.colors[
                                                                             bands[int(value)][bands_qty][0]],
                                                                         color=[0, 0, 0, 0],  # if bands[
-                                                                            #                       int(value)][
-                                                                            #                       bands_qty][
-                                                                            #                       0] == "Золотой" else [
-                                                                            # 1, 1, 1, 1],
+                                                                        #                       int(value)][
+                                                                        #                       bands_qty][
+                                                                        #                       0] == "Золотой" else [
+                                                                        # 1, 1, 1, 1],
                                                                         background_normal="",
-                                                                        option_cls="MySpinnerOption",)
+                                                                        option_cls="MySpinnerOption", )
                 self.ids["resistor_bands"].add_widget(self.dynamic_vars["band{}".format(bands_qty)])
                 for key, band in self.dynamic_vars.items():
                     if key.startswith("band"):

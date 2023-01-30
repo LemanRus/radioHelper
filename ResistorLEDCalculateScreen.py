@@ -26,14 +26,14 @@ class ResistorLEDCalculateScreen(Screen):
         #   "viewclass": "CenterList",
         #   "on_release": lambda x="6": self.set_item(x),
         #   "height": dp(56), }, ]
-        menu_items = []
+        self.menu_items = []
         for i in range(len(self.diodes.keys())):
-            menu_items.append({"center_text": list(self.diodes.keys())[i], "viewclass": "CenterList",
+            self.menu_items.append({"center_text": list(self.diodes.keys())[i], "viewclass": "CenterList",
                                "on_release": lambda x=list(self.diodes.keys())[i]: self.set_item(x),
                                "height": dp(56)})
         self.menu = MDDropdownMenu(
             caller=self.ids.resistor_marking_menu,
-            items=menu_items,
+            items=self.menu_items,
             width_mult=4,
         )
 

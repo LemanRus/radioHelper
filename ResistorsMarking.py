@@ -44,7 +44,7 @@ class ResistorsMarking(MDScreen):
                         "D": 1000, "E": 10000, "F": 100000}
 
     def build_menu(self):
-        menu_items = [{"center_text": "3",
+        self.menu_items = [{"center_text": "3",
                        "viewclass": "CenterList",
                        "on_release": lambda x="3": self.set_item(x),
                        "height": dp(56), },
@@ -62,7 +62,7 @@ class ResistorsMarking(MDScreen):
                        "height": dp(56), }, ]
         self.menu = MDDropdownMenu(
             caller=self.ids.resistor_marking_menu,
-            items=menu_items,
+            items=self.menu_items,
             width_mult=4,
         )
 

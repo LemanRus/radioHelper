@@ -29,9 +29,9 @@
                 MDLabelCenter:
                     text: "Для резисторов сквозного монтажа выберите количество полос:"
             RippleCard:
-                on_parent: root.build_me()
-                on_release: root.menu.open()
                 id: resistor_marking_menu
+                on_parent: root.build_me()
+                on_release: resistor.menu.open()
                 MDLabelCenter:
                     id: resistor_marking_menu_name
                     text: "3"

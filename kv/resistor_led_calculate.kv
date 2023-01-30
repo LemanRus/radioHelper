@@ -1,5 +1,6 @@
 <ResistorLEDCalculateScreen>:
     name: "LED_cal"
+    id: led_cal
     BoxLayout:
         orientation: "vertical"
         MDScreenTitle:
@@ -61,7 +62,7 @@
             RippleCard:
                 size_hint_x: 0.4
                 on_parent: root.build_me()
-                on_release: root.menu.open()
+                on_release: led_cal.menu.open()
                 id: resistor_marking_menu
                 MDLabelCenter:
                     id: resistor_marking_menu_name
